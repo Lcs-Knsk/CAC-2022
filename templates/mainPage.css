@@ -1,0 +1,64 @@
+#sideBar{
+    margin: 0px;
+    padding: 0px;
+    background-color: A9A9A9;
+
+    width: 15%;
+    height: 100%;
+
+    float: left;
+}
+
+.sideBarAttribute{
+    display: inline-block;
+    width: 78%;
+    margin: 0px;
+    padding: 10%;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.sideBarAttribute:hover{
+    background-color: 404040;
+}
+
+
+#topMenu{
+    background-color: green;
+    height: 10%;
+    width: 100%;
+    margin: 0px;
+}
+
+#titleText{
+    width: 90%;
+    font-size: 4vh;
+    text-align: center;
+    margin: 0px;
+    float: left;
+}
+
+#titleImg{
+    display: inline-block;
+    vertical-align: top;
+    width: 6%;
+    height: 100%;
+    margin: 0px;
+}
+
+#LogoImg{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+
+html, body{
+    margin: 0;
+}
+
+h1{
+    margin: 0px;
+}
