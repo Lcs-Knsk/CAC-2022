@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>CAC 2022</title>
-        <link rel="stylesheet" href="mainPage.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='mainPage.css') }}">
     </head>
 
     <body>
@@ -13,7 +13,7 @@
             </div>
 
             <div id="titleImg">
-                <img id="LogoImg" src="SpaghettiCodeInc.png">
+                <img id="LogoImg" src="{{ url_for('static', filename='SpaghettiCodeInc.png') }}">
             </div>
 
         </div>
