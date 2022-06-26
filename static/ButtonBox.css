@@ -1,0 +1,40 @@
+.StateParkBox{
+    float: left;
+
+    width: 23%;
+    height: 40%;
+
+    border: 5px solid black;
+    padding: 1%;
+    align-items: center;
+    font-family: "Georgia";
+    text-align: justify;
+
+    transition: .5s;
+    margin: .6%;
+}
+
+.StateParkBox:hover{
+    transform: scale(1.05);
+}
+
+.StateParkImg{
+    display: block;
+    width: 95%;
+    border: 5px solid black;
+}
+
+.StateParkUnderTitle{
+    width: 100%;
+}
+
+.StateParkTitle{
+    text-align: left;
+    margin: 5px 0px 5px 0px;
+    font-size: 200%;
+}
+
+.StateParkAbout{
+    margin: 0px;
+    font-size: 115%;
+}
