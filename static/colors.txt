@@ -1,0 +1,7 @@
+DDE2C6: White, Page background
+334139: Dark Gray, Dropdown background
+232925: Darker Gray, Dropdown hovered background
+32936F: Light Green, Title background
+Black: Black, everything black
+E10: Deez, Nuts
+
