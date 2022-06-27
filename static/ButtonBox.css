@@ -11,7 +11,8 @@
     text-align: justify;
 
     transition: .5s;
-    margin: .6%;
+    margin: .5%;
+    background-color: DDE2C6;
 }
 
 .StateParkBox:hover{
@@ -26,6 +27,7 @@
 
 .StateParkUnderTitle{
     width: 100%;
+    color: 334139;
 }
 
 .StateParkTitle{

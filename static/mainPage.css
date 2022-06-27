@@ -1,7 +1,7 @@
 #sideBar{
     margin: 0px;
     padding: 0px;
-    background-color: A9A9A9;
+    background-color: 334139;
 
     width: 15%;
     height: 100%;
@@ -21,12 +21,12 @@
 }
 
 .sideBarAttribute:hover{
-    background-color: 404040;
+    background-color: 232925;
 }
 
 
 #topMenu{
-    background-color: green;
+    background-color: 32936F;
     height: 10%;
     width: 100%;
     margin: 0px;
@@ -57,6 +57,8 @@
 
 html, body{
     margin: 0;
+    background-color: DDE2C6;
+    user-select: none;
 }
 
 h1{
