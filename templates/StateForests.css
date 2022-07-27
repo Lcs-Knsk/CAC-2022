@@ -52,6 +52,21 @@
 
 }
 
+#mapSection{
+    margin-top: 50px;
+}
+
+#map{
+    height: 520px;
+    width: 1000px;
+    border: 1px solid black;
+}
+
+#SpaceAtBottom{
+    height: 1000px;
+}
+
+
 h2{
     margin: 0px;
 }
@@ -113,5 +128,6 @@ body, html{
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #ddd;}
+
 
 
