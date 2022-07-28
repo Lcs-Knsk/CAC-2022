@@ -2,11 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Coopers Rock State Forest</title>
-        <link rel="stylesheet" href="StateForests.css">
-
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+        <title>Coopers Rock State Forest</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='StateForests.css')}}">
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
@@ -41,8 +42,6 @@
             <h2>Picture Feed:</h2>
             <br>
             <div class="StateForestPictures">
-                <img src="CoopersRockPage1.jpg">
-                <img src="CoopersRockPage2.jpg">
             </div>
 
             <br>
@@ -66,9 +65,7 @@
                 <div id="map">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
-                <script src="map.js"></script>
-
-
+                <script src="{{ url_for('static', filename='map.js')}}"></script>
                 <button id="uploadPictureButton" onclick="getLocation()">Upload Picture</button>
             </div>
         </div>
