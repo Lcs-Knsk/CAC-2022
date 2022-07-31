@@ -22,7 +22,7 @@
             </div>
                 <div class="StateForestHeaderButtons">
                     <div class="StateForestHeaderHome">
-                        <a>Home</a>
+                        <a href="{{ url_for('views.Home') }}">Home</a>
                     </div>
 
                     <div class="dropdown">
@@ -66,7 +66,7 @@
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
                 <script src="{{ url_for('static', filename='map.js')}}"></script>
-                <button id="uploadPictureButton" onclick="getLocation()">Upload Picture</button>
+                <button id="uploadPictureButton" onclick="getLocation()"></button>
             </div>
         </div>
     </body>

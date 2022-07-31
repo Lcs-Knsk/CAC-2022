@@ -5,6 +5,7 @@
         <title>CAC 2022</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='mainPage.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='ButtonBox.css') }}">
+        <script src="{{url_for('static', filename='Home.js')}}"></script>
     </head>
 
     <body>
@@ -27,7 +28,7 @@
             <a class="sideBarAttribute">Creators</a> <br>
         </div>
 
-        <div class="StateParkBox">
+        <a class="StateParkBox" href="{{ url_for('views.CoopersRock') }}">
             <img src="{{ url_for('static', filename='CoopersRock.jpg') }}" class="StateParkImg">
 
             <div class="StateParkUnderTitle">
@@ -38,7 +39,7 @@
                 This park offers many activities where you can relax and have fun.</p>
 
             </div>
-        </div>
+        </a>
 
 
 

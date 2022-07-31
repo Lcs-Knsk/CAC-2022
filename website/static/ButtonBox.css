@@ -8,10 +8,13 @@
     align-items: center;
     font-family: "Georgia";
     text-align: justify;
+    color: black;
 
-    transition: .5s;
-    margin: .5%;
+    transition: .4s;
+    margin: .6%;
     background-color: DDE2C6;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 .StateParkBox:hover{
