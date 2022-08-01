@@ -72,6 +72,10 @@
     background-color: #b4b4b4;
 }
 
+#uploadForm{
+    display: none;
+}
+
 
 
 h2{

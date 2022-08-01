@@ -12,7 +12,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.css" />
-
     </head>
     <body>
         <header class="StateForestHeader">
@@ -66,8 +65,25 @@
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
                 <script src="{{ url_for('static', filename='map.js')}}"></script>
-                <button id="uploadPictureButton" onclick="getLocation()"></button>
+                <button id="uploadPictureButton" onclick="unveilUploadForm()">
+                    {%if current_user.is_authenticated%}
+                    Toggle upload form
+                    {%else%}
+                    Sign In To Upload Picture
+                    {%endif%}
+                </button>
             </div>
+
+            <form method="POST" id="uploadForm">
+                <h3 align="center">Upload Picture</h3>
+                <div>
+                    <label> Description: </label>
+                    <input type="text" placeholder="Description of picture taken.">
+                </div> 
+            </form>
+
         </div>
+
+        <script src="{{ url_for('static', filename='StateForests.js')}}"></script>
     </body>
 </html>

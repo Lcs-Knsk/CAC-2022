@@ -17,3 +17,4 @@ function getLocation(){
         window.navigator.geolocation.getCurrentPosition(uploadImage, console.log(), {enableHighAccuracy: true});
     }
 }
+
