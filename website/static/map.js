@@ -5,16 +5,22 @@ var gl = L.mapboxGL({
 }).addTo(map);
 
 
-function uploadImage(position){
-    const {latitude, longitude} = position.coords;
-
-    var marker = L.marker([latitude, longitude]).addTo(map);
-    marker.bindPopup("<b>Uploaded by: </b> <b>On: </b> <img src='CoopersRockPage1.jpg'>")
+function uploadImage(location, date, description, id){
+    position = location.split(":")
+    var marker = L.marker([position[0], position[1]]).addTo(map);
+    marker.bindPopup("<b>" + date + "</b> <img {{ url_for('UPLOAD_FOLDER', filename= "+ id +")}}> <b>" + description + "</b>")
 }
 
 function getLocation(){
     if(window.navigator.geolocation){
-        window.navigator.geolocation.getCurrentPosition(uploadImage, console.log(), {enableHighAccuracy: true});
+        window.navigator.geolocation.getCurrentPosition(fillLocation, console.log(), {enableHighAccuracy: true});
     }
+}
+
+function fillLocation(position){
+    const {latitude, longitude} = position.coords;
+    document.getElementById("fillLocation").value = latitude + ":" + longitude;
+
+    var marker = L.marker([latitude, longitude]).addTo(map);
 }
 

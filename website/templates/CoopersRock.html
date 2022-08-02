@@ -64,7 +64,6 @@
                 <div id="map">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
-                <script src="{{ url_for('static', filename='map.js')}}"></script>
                 <button id="uploadPictureButton" onclick="unveilUploadForm()">
                     {%if current_user.is_authenticated%}
                     Toggle upload form
@@ -74,16 +73,30 @@
                 </button>
             </div>
 
-            <form method="POST" id="uploadForm">
+            <form method="POST" id="uploadForm" enctype="multipart/form-data">
                 <h3 align="center">Upload Picture</h3>
                 <div>
                     <label> Description: </label>
-                    <input type="text" placeholder="Description of picture taken.">
+                    <input type="text" placeholder="Description of picture taken." name="Description">
                 </div> 
+                <div>
+                    <label> Date: </label>
+                    <input type="text" placeholder="mm/dd/yyyy" name="Date">
+                </div>
+                <div>
+                    <label> Enter your image: </label>
+                    <input type="file" name="Image">
+                </div>
+                <div>
+                    <button onclick="getLocation()" type="button">Upload Current Location</button>
+                    <input name="Location" type="text" id="fillLocation">
+                </div>
+                <button type="submit">Submit your form</button>
             </form>
 
         </div>
 
+        <script src="{{ url_for('static', filename='map.js')}}"></script>
         <script src="{{ url_for('static', filename='StateForests.js')}}"></script>
     </body>
 </html>
