@@ -96,7 +96,16 @@
 
         </div>
 
+
         <script src="{{ url_for('static', filename='map.js')}}"></script>
         <script src="{{ url_for('static', filename='StateForests.js')}}"></script>
+
+        <script>
+            var myData = {{ markers|tojson }};
+            for(var i = 0; i < myData.length; i++){
+                uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3]);
+            }
+        </script>
+
     </body>
 </html>

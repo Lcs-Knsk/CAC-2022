@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 import os, datetime
 from . import db
 from .models import db_coopersrock
+import mysql.connector
 
 
 views = Blueprint('views', __name__)
@@ -40,4 +41,16 @@ def CoopersRock():
           db.session.add(new_image)
           db.session.commit()
 
-     return render_template("CoopersRock.html")
+     # Gets the data from the database to the map
+     Images = db_coopersrock.query.all()
+
+     listOfMarkers = []
+     for i in range(len(Images)):
+          newMarker = []
+          newMarker.append(Images[i].id)
+          newMarker.append(Images[i].date)
+          newMarker.append(Images[i].location)
+          newMarker.append(Images[i].description)
+          listOfMarkers.append(newMarker)
+          
+     return render_template("CoopersRock.html", markers=listOfMarkers)

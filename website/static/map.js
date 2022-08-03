@@ -5,10 +5,10 @@ var gl = L.mapboxGL({
 }).addTo(map);
 
 
-function uploadImage(location, date, description, id){
+function uploadImage(id, date, location, description){
     position = location.split(":")
     var marker = L.marker([position[0], position[1]]).addTo(map);
-    marker.bindPopup("<b>" + date + "</b> <img {{ url_for('UPLOAD_FOLDER', filename= "+ id +")}}> <b>" + description + "</b>")
+    marker.bindPopup("<b>" + date + "<br>" + description + "<br>" + "<img src='" + id + "'}}>")
 }
 
 function getLocation(){
@@ -23,4 +23,5 @@ function fillLocation(position){
 
     var marker = L.marker([latitude, longitude]).addTo(map);
 }
+
 
