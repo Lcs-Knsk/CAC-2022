@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>Sign Up</title>
+
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}"
+    </head>
+
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+            messages %} {% for category, message in messages %} {% if category ==
+            'error' %}
+            <div class="alert alert-danger alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+        
+        <form method="POST" id="signUpForm">
+            <h3 align="center">Sign Up</h3>
+            <div>
+                <label for="Username">Username: </label>
+                <input type="Username" id="Username" name="Username" placeholder="Enter Username">
+            </div>
+
+            <div>
+                <label for="Password">Password: </label>
+                <input type="password" id="Password" name="Password" placeholder="Enter Password">
+            </div>
+
+            <div>
+                <label for="Password2">Password: </label>
+                <input type="password" id="Password2" name="Password2" placeholder="Confirm Password">
+            </div>
+
+            <br>
+            <button type="submit" name="signUpForm">Submit</button>
+        </form>
+        
+        <form method="POST" id="loginForm">
+            <h3 align="center">Log In</h3>
+            <div>
+                <label for="Username">Username: </label>
+                <input type="Username" id="Username" name="Username" placeholder="Enter Username">
+            </div>
+
+            <div>
+                <label for="Password">Password: </label>
+                <input type="password" id="Password" name="Password" placeholder="Enter Password">
+            </div>
+            <br>
+            <button type="submit" name="loginForm">Log In</button>
+        </form>
+    </body>
+</html>

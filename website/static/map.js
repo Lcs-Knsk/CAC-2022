@@ -12,9 +12,7 @@ function getLocation(){
 
 function fillLocation(position){
     const {latitude, longitude} = position.coords;
-    document.getElementById("fillLocation").value = latitude + ":" + longitude;
-
-    var marker = L.marker([latitude, longitude]).addTo(map);
+    document.getElementById("uploadInputLocation").value = latitude + ":" + longitude;
 }
 
 

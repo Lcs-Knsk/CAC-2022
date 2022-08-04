@@ -12,6 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.css" />
+    
     </head>
     <body>
         <header class="StateForestHeader">
@@ -64,37 +65,29 @@
                 <div id="map">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
-                <button id="uploadPictureButton" 
-                {% if current_user.is_authenticated%} onclick="unveilUploadForm()"
-                {% else%} {{ redirect(url_for('auth.SignUp')) }}
-                {% endif %}>
-                    {%if current_user.is_authenticated%}
-                    Toggle upload form
-                    {%else%}
-                    Sign In To Upload Picture
-                    {%endif%}
-                </button>
+
+                {% if current_user.is_authenticated%}
+                <button id=uploadPictureButton onclick="unveilUploadForm()">Toggle Upload Form</button>
+                {% else %} 
+                <a id=uploadPictureButton href="{{ url_for('auth.SignUp') }}"> Sign Up To Upload Pictures </a>
+                {% endif %}
             </div>
 
             <form method="POST" id="uploadForm" enctype="multipart/form-data">
                 <h3 align="center">Upload Picture</h3>
-                <div>
-                    <label> Description: </label>
-                    <input type="text" placeholder="Description of picture taken." name="Description">
+                <div class="uploadWrappers">
+                    <label id="uploadLabelImage"> Enter your image: </label>
+                    <input type="file" name="Image" id="uploadInputImage">
+                </div>
+                <div class="uploadWrappers">
+                    <label id="uploadLabelDescription"> Description: </label>
+                    <input id="uploadInputDescription" type="text" placeholder="Description of picture taken." name="Description">
                 </div> 
-                <div>
-                    <label> Date: </label>
-                    <input type="text" placeholder="mm/dd/yyyy" name="Date">
+                <div class="uploadWrappers">
+                    <button onclick="getLocation()" type="button" id="uploadButtonLocation">Upload Current Location</button>
+                    <input name="Location" type="text" id="uploadInputLocation" placeholder="Hit 'Upload Location'">
                 </div>
-                <div>
-                    <label> Enter your image: </label>
-                    <input type="file" name="Image">
-                </div>
-                <div>
-                    <button onclick="getLocation()" type="button">Upload Current Location</button>
-                    <input name="Location" type="text" id="fillLocation">
-                </div>
-                <button type="submit">Submit your form</button>
+                <button type="submit" id="uploadSubmit">Upload To Map</button>
             </form>
 
         </div>
@@ -124,5 +117,6 @@
             }
 
         </script>
+
     </body>
 </html>

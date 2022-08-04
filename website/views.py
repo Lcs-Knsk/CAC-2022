@@ -26,7 +26,7 @@ def about():
 def CoopersRock():
      if request.method == 'POST':
           Description = request.form.get('Description')
-          Date = request.form.get('Date')
+          Date = datetime.date.today
           Location = request.form.get('Location')
 
           Image = request.files['Image']
