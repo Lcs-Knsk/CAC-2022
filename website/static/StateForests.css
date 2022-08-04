@@ -10,7 +10,7 @@
 
 
 .StateForestHeaderItems{
-    width: 1000px;
+    max-width: 1000px;
     margin: auto;
     font-family: "Georgia";
 }
@@ -40,7 +40,7 @@
 }
 
 .StateForestBody{
-    width: 1000px;
+    max-width: 1000px;
     margin: auto;
     background-color: #fbfaf5;
     border: 3px solid white;

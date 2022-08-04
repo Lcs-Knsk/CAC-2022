@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 import os, datetime
@@ -9,7 +9,7 @@ import mysql.connector
 
 views = Blueprint('views', __name__)
 
-UPLOAD = 'C:\\Users\\lucas\\.Coding\\..CAC-2022\\CAC-2022\\website\\UPLOAD_FOLDER'
+UPLOAD = 'C:\\Users\\lucas\\.Coding\\..CAC-2022\\CAC-2022\\website\\static\\UPLOAD_FOLDER'
 
 
 @views.route("/")
@@ -37,7 +37,7 @@ def CoopersRock():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_coopersrock(date=Date, location=Location, description=Description, id=Path)
+          new_image = db_coopersrock(date=Date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 

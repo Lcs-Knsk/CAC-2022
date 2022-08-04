@@ -64,7 +64,10 @@
                 <div id="map">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
-                <button id="uploadPictureButton" onclick="unveilUploadForm()">
+                <button id="uploadPictureButton" 
+                {% if current_user.is_authenticated%} onclick="unveilUploadForm()"
+                {% else%} {{ redirect(url_for('auth.SignUp')) }}
+                {% endif %}>
                     {%if current_user.is_authenticated%}
                     Toggle upload form
                     {%else%}
@@ -102,10 +105,24 @@
 
         <script>
             var myData = {{ markers|tojson }};
-            for(var i = 0; i < myData.length; i++){
-                uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3]);
+            setTimeout(setMarkers, 1000)
+            function setMarkers(){
+                for(var i = 0; i < myData.length; i++){
+                    uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3]);
+                }
             }
-        </script>
 
+            function uploadImage(id, date, location, description){
+                position = location.split(":")
+                var marker = L.marker([position[0], position[1]]).addTo(map);
+
+                id = id.replace(" ", "_");
+                id = id.replace(":", "");
+                id = id.replace(":", "");
+
+                marker.bindPopup("<b>" + date + "<br>" + description + "</b> <img src='static/UPLOAD_FOLDER/" + id + "'>");
+            }
+
+        </script>
     </body>
 </html>

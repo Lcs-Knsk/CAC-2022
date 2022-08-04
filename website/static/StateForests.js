@@ -8,3 +8,7 @@ function unveilUploadForm(){
     }
     console.log("Changed")
 }
+
+function sendToSignUp(){
+   console.log("okay"); 
+}
