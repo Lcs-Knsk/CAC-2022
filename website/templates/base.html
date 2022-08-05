@@ -5,7 +5,7 @@
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
         <title>{{ title }} State Forest</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='StateForests.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/StateForests.css')}}">
 
        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
@@ -95,8 +95,8 @@
         </div>
 
 
-        <script src="{{ url_for('static', filename='map.js')}}"></script>
-        <script src="{{ url_for('static', filename='StateForests.js')}}"></script>
+        <script src="{{ url_for('static', filename='Javascript/map.js')}}"></script>
+        <script src="{{ url_for('static', filename='Javascript/StateForests.js')}}"></script>
 
         <script>
             makeMap({{latitude}}, {{longitude}});
