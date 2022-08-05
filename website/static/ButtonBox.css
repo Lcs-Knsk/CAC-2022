@@ -15,7 +15,7 @@
     background-color: DDE2C6;
     font-size: 15px;
     text-decoration: none;
-    height: 63%;
+    height: 50%;
 }
 
 .StateParkBox:hover{
@@ -42,4 +42,5 @@
 .StateParkAbout{
     margin: 0px;
     font-size: 115%;
+    display: none;
 }
