@@ -119,7 +119,7 @@ def Cabwaylingo():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("Cabwaylingo.html", title="Cabwaylingo", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("Cabwaylingo.html", title="Cabwaylingo", markers=listOfMarkers, latitude=37.98630939830299, longitude=-82.37419391981442)
 
 @views.route('/kanawha', methods=['GET', 'POST'])
 def Kanawha():
@@ -153,7 +153,7 @@ def Kanawha():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("Kanawha.html", title="Kanawha", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("Kanawha.html", title="Kanawha", markers=listOfMarkers, latitude=38.252479258812265, longitude=-81.6561347664939)
 
 @views.route('/calvin_price', methods=['GET', 'POST'])
 def CalvinPrice():
@@ -187,7 +187,7 @@ def CalvinPrice():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("CalvinPrice.html", title="Calvin Price", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("CalvinPrice.html", title="Calvin Price", markers=listOfMarkers, latitude=38.07869624412231, longitude=-80.13671646525201)
 
 @views.route('/camp_creek', methods=['GET', 'POST'])
 def CampCreek():
@@ -221,7 +221,7 @@ def CampCreek():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("CampCreek.html", title="Camp Creek", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("CampCreek.html", title="Camp Creek", markers=listOfMarkers, latitude=37.52329454326871, longitude=-81.1494609861773)
 
 @views.route('/panther', methods=['GET', 'POST'])
 def Panther():
@@ -255,7 +255,7 @@ def Panther():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("Panther.html", title="Panther", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("Panther.html", title="Panther", markers=listOfMarkers, latitude=37.42031776693124, longitude=-81.8827314691821)
 
 @views.route('/seneca', methods=['GET', 'POST'])
 def Seneca():
@@ -289,7 +289,7 @@ def Seneca():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("Seneca.html", title="Seneca", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("Seneca.html", title="Seneca", markers=listOfMarkers, latitude=38.2846340833706, longitude=-79.99551912339467)
 
 @views.route('/kumbrabow', methods=['GET', 'POST'])
 def Kumbrabow():
@@ -323,4 +323,4 @@ def Kumbrabow():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
          
-     return render_template("Kumbrabow.html", title="Kumbrabow", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)
+     return render_template("Kumbrabow.html", title="Kumbrabow", markers=listOfMarkers, latitude=38.636832286036324, longitude=-80.09305460855343)
