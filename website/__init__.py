@@ -20,7 +20,7 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import User, db_coopersrock
+    from .models import User, db_coopersrock, db_greenbrier
 
     create_database(app)
 

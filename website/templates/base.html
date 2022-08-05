@@ -28,8 +28,8 @@
                     <div class="dropdown">
                       <button class="dropbtn">Find State Forests</button>
                       <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
+                        <a href="{{ url_for('views.CoopersRock') }}">Coopers Rock</a>
+                        <a href="{{ url_for('views.Greenbrier') }}"">Greenbrier</a>
                         <a href="#">Link 3</a>
                       </div>
                     </div>
@@ -112,6 +112,8 @@
 
                 marker.bindPopup("<b>" + date + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "'>");
                 addImageToPictureFeed(id);
+
+                console.log(id)
             }
 
             function addImageToPictureFeed(id){

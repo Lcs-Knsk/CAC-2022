@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 import os, datetime
 from . import db
-from .models import db_coopersrock
+from .models import db_coopersrock, db_greenbrier
 import mysql.connector
 
 
@@ -32,7 +32,6 @@ def CoopersRock():
           Location = request.form.get('Location')
 
           Image = request.files['Image']
-          print(datetime.datetime.now())
           newName = Image.filename.split('.')
           newName[0] = str(datetime.datetime.now())
           Path = newName[0] + '.' + newName[1]
@@ -59,5 +58,34 @@ def CoopersRock():
 
 @views.route('/greenbrier', methods=['GET', 'POST'])
 def Greenbrier():
-     title = "Greenbrier"
-     return render_template("Greenbrier.html", title=title, markers="", latitude=37.73212355678927, longitude=-80.35293828677094)
+     if request.method == 'POST':
+          Description = request.form.get('Description')
+          Date = datetime.date.today()
+          date = Date.strftime("%m/%d/%y")
+
+          Location = request.form.get('Location')
+
+          Image = request.files['Image']
+          newName = Image.filename.split('.')
+          newName[0] = str(datetime.datetime.now())
+          Path = newName[0] + '.' + newName[1]
+          Path = os.path.join(UPLOAD, secure_filename(Path))
+          Image.save(Path)
+
+          new_image = db_greenbrier(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          db.session.add(new_image)
+          db.session.commit()
+
+     # Gets the data from the database to the map
+     Images = db_greenbrier.query.all()
+
+     listOfMarkers = []
+     for i in range(len(Images)):
+          newMarker = []
+          newMarker.append(Images[i].id)
+          newMarker.append(Images[i].date)
+          newMarker.append(Images[i].location)
+          newMarker.append(Images[i].description)
+          listOfMarkers.append(newMarker)
+         
+     return render_template("Greenbrier.html", title="Greenbrier", markers=listOfMarkers, latitude=37.73212355678927, longitude=-80.35293828677094)

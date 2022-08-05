@@ -13,4 +13,8 @@ class db_coopersrock(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
 
-
+class db_greenbrier(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
