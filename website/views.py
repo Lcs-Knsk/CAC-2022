@@ -26,7 +26,9 @@ def about():
 def CoopersRock():
      if request.method == 'POST':
           Description = request.form.get('Description')
-          Date = datetime.date.today
+          Date = datetime.date.today()
+          date = Date.strftime("%m/%d/%y")
+
           Location = request.form.get('Location')
 
           Image = request.files['Image']
@@ -37,7 +39,7 @@ def CoopersRock():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_coopersrock(date=Date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -53,4 +55,9 @@ def CoopersRock():
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
           
-     return render_template("CoopersRock.html", markers=listOfMarkers)
+     return render_template("CoopersRock.html", title="Coopers Rock", markers=listOfMarkers, latitude=39.64390129350228, longitude=-79.81014851593424)
+
+@views.route('/greenbrier', methods=['GET', 'POST'])
+def Greenbrier():
+     title = "Greenbrier"
+     return render_template("Greenbrier.html", title=title, markers="", latitude=37.73212355678927, longitude=-80.35293828677094)
