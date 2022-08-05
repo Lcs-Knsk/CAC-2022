@@ -18,3 +18,45 @@ class db_greenbrier(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+
+class db_cabwaylingo(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_calvinPrice(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_campCreek(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_kanawha(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_kumbrabow(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_panther(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))
+
+class db_seneca(db.Model):
+    id = db.Column(db.String(1000), primary_key=True)
+    date = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    description = db.Column(db.String(1000))

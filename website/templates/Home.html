@@ -11,7 +11,7 @@
     <body>
         <div id="topMenu">
             <div id="titleText">
-                <h1>West Virginia State Parks</h1>
+                <h1>West Virginia State Forests</h1>
             </div>
 
             <div id="titleImg">
@@ -21,39 +21,52 @@
         </div>
 
         <div id="sideBar">
-            <a class="sideBarAttribute">Home</a> <br>
-            <a class="sideBarAttribute">Find State Parks</a> <br>
+
+            {%if not current_user.is_authenticated %}
+            <a class="sideBarAttribute" href="{{ url_for('auth.SignUp')}}">
+            Sign Up or Login
+            </a> <br>
+            {% else %}
+            <a class="sideBarAttribute">
+            Uploaded pictures
+            </a> <br>
+            {% endif %}
+
             <a class="sideBarAttribute">Maps</a> <br>
             <a class="sideBarAttribute">Info</a> <br>
             <a class="sideBarAttribute">Creators</a> <br>
         </div>
 
-        <a class="StateParkBox" href="{{ url_for('views.CoopersRock') }}">
-            <img src="{{ url_for('static', filename='CoopersRock.jpg') }}" class="StateParkImg">
 
-            <div class="StateParkUnderTitle">
-                <p class="StateParkTitle" >Cooper Rock State Forest</p>
+        <div id="StateParkBoxWrapper">
 
-                <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                12,747 acres through Monongalia and Preston County.
-                This park offers many activities where you can relax and have fun.</p>
+            <a class="StateParkBox" href="{{ url_for('views.CoopersRock') }}">
+                <img src="{{ url_for('static', filename='CoopersRock.jpg') }}" class="StateParkImg">
 
-            </div>
-        </a>
+                <div class="StateParkUnderTitle">
+                    <p class="StateParkTitle" >Cooper Rock State Forest</p>
 
-        <a class="StateParkBox" href="{{ url_for('views.Greenbrier') }}">
-            <img src="{{ url_for('static', filename='Greenbrier.jpg') }}" class="StateParkImg">
+                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                    12,747 acres through Monongalia and Preston County.
+                    This park offers many activities where you can relax and have fun.</p>
 
-            <div class="StateParkUnderTitle">
-                <p class="StateParkTitle" >Greenbrier State Forest</p>
+                </div>
+            </a>
 
-                <p class="StateParkAbout" > Like I would totally come here 
-                and then 'come' here, if u know what I mean :), like honestly it's just so uwu and cool here. The amogus body guards are free! 
-                They'll even pleasure u whenever u want</p>
+            <a class="StateParkBox" href="{{ url_for('views.Greenbrier') }}">
+                <img src="{{ url_for('static', filename='Greenbrier.jpg') }}" class="StateParkImg">
 
-            </div>
-        </a>
+                <div class="StateParkUnderTitle">
+                    <p class="StateParkTitle" >Greenbrier State Forest</p>
 
+                    <p class="StateParkAbout" > Like I would totally come here 
+                    and then 'come' here, if u know what I mean :), like honestly it's just so uwu and cool here. The amogus body guards are free! 
+                    They'll even pleasure u whenever u want</p>
+
+                </div>
+            </a>
+            
+        </div>
 
     </body>
 </html>
