@@ -322,5 +322,7 @@ def Kumbrabow():
           newMarker.append(Images[i].location)
           newMarker.append(Images[i].description)
           listOfMarkers.append(newMarker)
-         
+     
+     listOfMarkers = listOfMarkers.reverse()
+
      return render_template("Kumbrabow.html", title="Kumbrabow", markers=listOfMarkers, latitude=38.636832286036324, longitude=-80.09305460855343)
