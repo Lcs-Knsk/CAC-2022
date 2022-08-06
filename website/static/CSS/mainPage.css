@@ -1,6 +1,6 @@
 html, body{
     margin: 0;
-    background-color: DDE2C6;
+    background-color: #DDE2C6;
     user-select: none;
 
 }
@@ -8,11 +8,11 @@ html, body{
 #sideBar{
     margin: 0px;
     padding: 0px;
-    background-color: 334139;
+    background-color: #334139;
 
     width: 15%;
     float: left;
-    height: 175%;
+    height: 900px;
 }
 
 .sideBarAttribute{
@@ -28,12 +28,12 @@ html, body{
 }
 
 .sideBarAttribute:hover{
-    background-color: 232925;
+    background-color: #232925;
 }
 
 
 #topMenu{
-    background-color: 32936F;
+    background-color: #32936F;
     height: 90px;
     width: 100%;
     margin: 0px;

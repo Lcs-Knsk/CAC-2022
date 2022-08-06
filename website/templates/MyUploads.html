@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My Uploads</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css')}}">
+        <script src="{{url_for('static', filename='Javascript/Home.js')}}"></script>
+    </head>
+
+    <body>
+        <div id="topMenu">
+            <div id="titleText">
+                <h1>West Virginia State Forests</h1>
+            </div>
+
+            <div id="titleImg">
+                <img id="LogoImg" src="{{ url_for('static', filename='Images/SpaghettiCodeInc.png') }}">
+            </div>
+
+        </div>
+
+        <div id="sideBar">
+
+            {%if not current_user.is_authenticated %}
+            <a class="sideBarAttribute" href="{{ url_for('auth.SignUp') }}">
+            Sign Up or Login
+            </a> <br>
+            {% else %}
+            <a class="sideBarAttribute" href="{{ url_for('views.Uploads') }}">
+            Uploaded pictures
+            </a> <br>
+            {% endif %}
+
+            <a class="sideBarAttribute">Maps</a> <br>
+            <a class="sideBarAttribute">Info</a> <br>
+            <a class="sideBarAttribute">Creators</a> <br>
+        </div>
+
+        
+        <div id=MyUploads>
+
+        </div>
+
+        <script>
+
+            {% for upload in user.uploadsCR %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsGB %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCWL %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsKNW %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCP %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCC %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsP %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsS %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+            {% for upload in user.uploadsKBB %}
+            var id = "{{ upload.id }}";
+            
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id);
+
+            {% endfor %}
+
+
+            function addImageToPictureFeed(id){
+                var img = document.createElement("img");
+                img.src = "static/UPLOAD_FOLDER/" + id;
+
+                var block = document.getElementById("MyUploads");
+                block.appendChild(img);
+            }
+        </script>
+
+    </body>
+</html>

@@ -13,11 +13,19 @@ views = Blueprint('views', __name__)
 
 UPLOAD = 'C:\\Users\\lucas\\.Coding\\..CAC-2022\\CAC-2022\\website\\static\\UPLOAD_FOLDER'
 
+# Pages that aren't for a state forest
 
 @views.route("/")
 def Home():
      return render_template("Home.html")
 
+@views.route("/my_uploads", methods=['GET', 'POST'])
+def Uploads():
+     return render_template('MyUploads.html', user=current_user)
+
+
+
+# All of the state park pages
 
 @views.route("/coopers_rock", methods=['GET', 'POST'])
 def CoopersRock():
@@ -35,7 +43,7 @@ def CoopersRock():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]), user_id=current_user.id)
           db.session.add(new_image)
           db.session.commit()
 
@@ -69,7 +77,7 @@ def Greenbrier():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_greenbrier(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_greenbrier(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -103,7 +111,7 @@ def Cabwaylingo():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_cabwaylingo(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_cabwaylingo(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -137,7 +145,7 @@ def Kanawha():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_kanawha(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_kanawha(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -171,7 +179,7 @@ def CalvinPrice():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_calvinPrice(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_calvinPrice(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -205,7 +213,7 @@ def CampCreek():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_campCreek(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_campCreek(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -239,7 +247,7 @@ def Panther():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_panther(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_panther(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -273,7 +281,7 @@ def Seneca():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_seneca(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_seneca(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
@@ -307,7 +315,7 @@ def Kumbrabow():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_kumbrabow(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_kumbrabow(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
           db.session.add(new_image)
           db.session.commit()
 
