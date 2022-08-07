@@ -21,6 +21,8 @@
         </div>
 
         <div id="sideBar">
+            
+            <a class="sideBarAttribute" href="{{ url_for('views.Home') }}"> Home</a>
 
             {%if not current_user.is_authenticated %}
             <a class="sideBarAttribute" href="{{ url_for('auth.SignUp') }}">

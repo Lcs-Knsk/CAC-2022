@@ -1,0 +1,23 @@
+
+
+#UploadedImages{
+    float: left;
+    margin: 10px;
+    border: 2px solid black;
+    width: 300px;
+    background-color: rgb(255, 250, 244);
+}
+
+#UploadedImage{
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}
+
+#UploadDate{
+    margin: 8px 10px;
+}
+
+#UploadDescription{
+    margin: 8px 10px;
+}

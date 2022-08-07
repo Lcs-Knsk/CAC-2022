@@ -3,8 +3,9 @@
 <html>
     <head>
         <title>My Uploads</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css')}}">
-        <script src="{{url_for('static', filename='Javascript/Home.js')}}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/MyUploads.css') }}"
+        <script src="{{ url_for('static', filename='Javascript/Home.js') }}"></script>
     </head>
 
     <body>
@@ -20,6 +21,7 @@
         </div>
 
         <div id="sideBar">
+            <a class="sideBarAttribute" href="{{ url_for('views.Home') }}"> Home</a>
 
             {%if not current_user.is_authenticated %}
             <a class="sideBarAttribute" href="{{ url_for('auth.SignUp') }}">
@@ -45,110 +47,43 @@
 
             {% for upload in user.uploadsCR %}
             var id = "{{ upload.id }}";
-            
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
             id = id.replace(" ", "_");
             id = id.replace(":", "");
             id = id.replace(":", "");
 
-            addImageToPictureFeed(id);
+            addImageToPictureFeed(id, date, description, "Coopers Rock");
+
+            console.log(date)
 
             {% endfor %}
 
-            {% for upload in user.uploadsGB %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
+            function addImageToPictureFeed(id, date, description, title){
 
-            addImageToPictureFeed(id);
+                var div = document.createElement("div");
+                div.id = "UploadedImages"
 
-            {% endfor %}
-
-            {% for upload in user.uploadsCWL %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsKNW %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsCP %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsCC %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsP %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsS %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-            {% for upload in user.uploadsKBB %}
-            var id = "{{ upload.id }}";
-            
-            id = id.replace(" ", "_");
-            id = id.replace(":", "");
-            id = id.replace(":", "");
-
-            addImageToPictureFeed(id);
-
-            {% endfor %}
-
-
-            function addImageToPictureFeed(id){
                 var img = document.createElement("img");
                 img.src = "static/UPLOAD_FOLDER/" + id;
+                img.id = "UploadedImage";
+
+                var dates = document.createElement("h4");
+                dates.innerHTML = title + ": " + date;
+                dates.id = "UploadDate";
+
+                var descriptions = document.createElement("p");
+                descriptions.innerHTML = description;
+                descriptions.id = "UploadDescription";
+
+                div.appendChild(img);
+                div.appendChild(dates);
+                div.appendChild(descriptions);
 
                 var block = document.getElementById("MyUploads");
-                block.appendChild(img);
+                block.appendChild(div);
+
             }
         </script>
 
