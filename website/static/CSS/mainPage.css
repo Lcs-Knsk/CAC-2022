@@ -2,6 +2,7 @@ html, body{
     margin: 0;
     background-color: #DDE2C6;
     user-select: none;
+    min-width: 880px;
 
 }
 
@@ -34,18 +35,18 @@ html, body{
 
 #topMenu{
     background-color: #32936F;
-    height: 90px;
     width: 100%;
     margin: 0px;
-    height: 70px;
+    min-height: 70px;
 }
 
 #titleText{
     width: 90%;
-    font-size: 4vh;
+    font-size: 190%;
     text-align: center;
     margin: 0px;
     float: left;
+    min-width: 710px;
 }
 
 #titleImg{
@@ -57,8 +58,8 @@ html, body{
 }
 
 #LogoImg{
-    height: 100%;
-    width: 100%;
+    max-height: 75px;
+    max-width: 75px;
     margin: 0px;
 }
 

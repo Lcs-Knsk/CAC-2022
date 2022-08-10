@@ -137,6 +137,12 @@
     font-size: medium;
 }
 
+#uploadCaution{
+    height: 15px;
+    width: 15px;
+}
+
+
 #uploadSubmit{
     font-size: medium;
 }

@@ -63,7 +63,7 @@
 
         <div class="StateForestBody">
             <div class="BehindTitle"></div>
-            <h2>Picture Feed:</h2>
+            <h2>Latest Photos:</h2>
             <br>
             
             <div id="StateForestPictures">
@@ -87,10 +87,10 @@
                 </div>
 
                 {% if current_user.is_authenticated%}
-                <button id=uploadPictureButton onclick="unveilUploadForm()">Toggle Upload Form</button>
+                <button id=uploadPictureButton onclick="unveilUploadForm()">Toggle Image Upload Form</button>
                 {% else %} 
-                <a id=uploadPictureButton href="{{ url_for('auth.SignUp') }}"> Sign Up To Upload Pictures </a>
-                {% endif %}
+                <a id=uploadPictureButton href="{{ url_for('auth.SignUp') }}"> Login to Upload to the Map </a>
+                {% endif %}                
             </div>
 
             <form method="POST" id="uploadForm" enctype="multipart/form-data">
@@ -107,9 +107,15 @@
                     <button onclick="getLocation()" type="button" id="uploadButtonLocation">Upload Current Location</button>
                     <input name="Location" type="text" id="uploadInputLocation" placeholder="Hit 'Upload Location'">
                 </div>
+                
+                <div class="uploadWrappers">
+                    <label id="uploadLabelDescription"> Should This Place Be Avoided: </label>
+                    <input type="checkbox" id="uploadCaution" name="Is_Caution"> 
+                </div>
+
+                <br>
                 <button type="submit" id="uploadSubmit">Upload To Map</button>
             </form>
-
         </div>
 
 
@@ -118,9 +124,16 @@
 
         <script>
 
+            var cautionIcon = L.icon({
+                iconUrl: 'static/Images/CautionImage.png',
+                iconSize: [38, 38],
+            });
+
+
+
             makeMap({{latitude}}, {{longitude}});
             var myData = {{ markers|tojson }};
-            setTimeout(setMarkers, 1000)
+            setTimeout(setMarkers, 200)
 
 
             // Checks if the user is using a mobile brows
@@ -137,13 +150,15 @@
 
             function setMarkers(){
                 for(var i = 0; i < myData.length; i++){
-                    uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3]);
+                    uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3], myData[i][4]);
                 }
             }
 
-            function uploadImage(id, date, location, description){
+            function uploadImage(id, date, location, description, is_caution){
                 position = location.split(":")
-                var marker = L.marker([position[0], position[1]]).addTo(map);
+
+                if(is_caution) var marker = L.marker([position[0], position[1]], {icon:cautionIcon}).addTo(map);
+                else var marker = L.marker([position[0], position[1]]).addTo(map);
 
                 id = id.replace(" ", "_");
                 id = id.replace(":", "");
