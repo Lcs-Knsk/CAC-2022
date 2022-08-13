@@ -1,21 +1,15 @@
 html, body{
-    margin: 0;
+    margin: 0px;
     background-color: #DDE2C6;
     user-select: none;
 }
 
 #sideBar{
-
     position: fixed;
-
-    margin: 0px;
-    margin-right: 17vh;
-    padding: 0px;
     background-color: #334139;
-
     width: 17vh;
-    float: left;
     height: 100vh;
+    margin-top: 35px;
 
 }
 
@@ -35,19 +29,12 @@ html, body{
     background-color: #232925;
 }
 
-#topBarFiller{
-    height: 7.3vh;
-    width: 100%;
-}
-
-
-
-
 #topMenu{
     background-color: #32936F;
     width: 100%;
     margin: 0px;
-    height: 70px;
+    position: fixed;
+    z-index: 9999;
 }
 
 #titleText{
@@ -55,21 +42,11 @@ html, body{
     text-align: center
 }
 
-#titleImg{
-    display: none;
-    vertical-align: top;
-    width: 65px;
-    height: 100%;
-    margin: 0px;
+#StateParkBoxWrapper{
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 150px;
 }
-
-#LogoImg{
-    max-height: 75px;
-    max-width: 75px;
-    margin: 0px;
-}
-
-
 
 
 h1{

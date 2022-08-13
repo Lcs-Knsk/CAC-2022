@@ -175,6 +175,7 @@
             function addImageToPictureFeed(id){
                 var img = document.createElement("img");
                 img.src = "static/UPLOAD_FOLDER/" + id;
+                img.id = "UploadedImages"
 
                 var block = document.getElementById("StateForestPictures");
                 block.appendChild(img);

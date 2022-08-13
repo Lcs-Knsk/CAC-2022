@@ -163,6 +163,10 @@ body, html{
     background: #dde2c6;
 }
 
+#UploadedImages{
+    max-width: 50vh;
+    max-height: 50vh;
+}
 
 
 

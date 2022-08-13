@@ -11,8 +11,7 @@ import mysql.connector
 
 views = Blueprint('views', __name__)
 
-UPLOAD = 'C:\\Users\\lucas\\.Coding\\..CAC-2022\\CAC-2022\\website\\static\\UPLOAD_FOLDER'
-
+UPLOAD = "C://..Coding//.CAC-2022//CAC-2022//website//static//UPLOAD_FOLDER"
 # Pages that aren't for a state forest
 
 @views.route("/")
