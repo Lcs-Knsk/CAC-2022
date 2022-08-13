@@ -35,6 +35,12 @@ def CoopersRock():
           date = Date.strftime("%m/%d/%y")
 
           Location = request.form.get('Location')
+          IsCaution = request.form.get('Is_Caution')
+
+          if(IsCaution == "on"):
+               IsCaution = True
+          else:
+               IsCaution = False
 
           Image = request.files['Image']
           newName = Image.filename.split('.')
@@ -43,7 +49,7 @@ def CoopersRock():
           Path = os.path.join(UPLOAD, secure_filename(Path))
           Image.save(Path)
 
-          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]), user_id=current_user.id)
+          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]), user_id=current_user.id, is_caution=IsCaution)
           db.session.add(new_image)
           db.session.commit()
 
@@ -57,6 +63,7 @@ def CoopersRock():
           newMarker.append(Images[i].date)
           newMarker.append(Images[i].location)
           newMarker.append(Images[i].description)
+          newMarker.append(Images[i].is_caution)
           listOfMarkers.append(newMarker)
           
      return render_template("CoopersRock.html", title="Coopers Rock", markers=listOfMarkers, latitude=39.64390129350228, longitude=-79.81014851593424)

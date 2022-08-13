@@ -7,6 +7,7 @@ class db_coopersrock(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_greenbrier(db.Model):
@@ -14,6 +15,7 @@ class db_greenbrier(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_cabwaylingo(db.Model):
@@ -21,6 +23,7 @@ class db_cabwaylingo(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_calvinPrice(db.Model):
@@ -28,6 +31,7 @@ class db_calvinPrice(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_campCreek(db.Model):
@@ -35,6 +39,7 @@ class db_campCreek(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_kanawha(db.Model):
@@ -42,6 +47,7 @@ class db_kanawha(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_kumbrabow(db.Model):
@@ -49,6 +55,7 @@ class db_kumbrabow(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_panther(db.Model):
@@ -56,6 +63,7 @@ class db_panther(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_seneca(db.Model):
@@ -63,6 +71,7 @@ class db_seneca(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):

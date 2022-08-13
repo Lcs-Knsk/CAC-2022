@@ -60,6 +60,126 @@
 
             {% endfor %}
 
+            {% for upload in user.uploadsCB %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Greenbrier");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCWL %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Cabwaylingo");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsKNW %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Kanawha");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCP %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Calvin Price");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsCC %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Camp Creek");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsP %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Panther");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsS %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Seneca");
+
+            console.log(date)
+
+            {% endfor %}
+
+            {% for upload in user.uploadsKBB %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+
+            addImageToPictureFeed(id, date, description, "Kumbrabow");
+
+            console.log(date)
+
+            {% endfor %}
+
             function addImageToPictureFeed(id, date, description, title){
 
                 var div = document.createElement("div");
