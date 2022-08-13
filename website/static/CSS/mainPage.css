@@ -2,17 +2,21 @@ html, body{
     margin: 0;
     background-color: #DDE2C6;
     user-select: none;
-
 }
 
 #sideBar{
+
+    position: fixed;
+
     margin: 0px;
+    margin-right: 17vh;
     padding: 0px;
     background-color: #334139;
 
-    width: 15%;
+    width: 17vh;
     float: left;
-    height: 900px;
+    height: 100vh;
+
 }
 
 .sideBarAttribute{
@@ -21,7 +25,7 @@ html, body{
     margin: 0px;
     padding: 10%;
     text-align: center;
-    font-size: 150%;
+    font-size: 3vh;
     font-weight: bold;
     border: 1px solid black;
     color: black;
@@ -31,27 +35,28 @@ html, body{
     background-color: #232925;
 }
 
+#topBarFiller{
+    height: 7.3vh;
+    width: 100%;
+}
+
 
 #topMenu{
     background-color: #32936F;
-    height: 90px;
     width: 100%;
-    margin: 0px;
-    height: 70px;
+    padding: 10px;
+    position: fixed;
 }
 
 #titleText{
-    width: 90%;
     font-size: 4vh;
-    text-align: center;
-    margin: 0px;
-    float: left;
+    text-align: center
 }
 
 #titleImg{
-    display: inline-block;
+    display: none;
     vertical-align: top;
-    width: 6%;
+    width: 65px;
     height: 100%;
     margin: 0px;
 }

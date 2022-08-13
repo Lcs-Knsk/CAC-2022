@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>CAC 2022</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css')}}">
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS/ButtonBox.css') }}">
         <script src="{{url_for('static', filename='Javascript/Home.js')}}"></script>
@@ -10,15 +11,10 @@
 
     <body>
         <div id="topMenu">
-            <div id="titleText">
-                <h1>West Virginia State Forests</h1>
-            </div>
-
-            <div id="titleImg">
-                <img id="LogoImg" src="{{ url_for('static', filename='Images/SpaghettiCodeInc.png') }}">
-            </div>
-
+            <h1 id="titleText">West Virginia State Forests</h1>
         </div>
+
+        <div id="topBarFiller"></div>
 
         <div id="sideBar">
             
@@ -36,128 +32,129 @@
 
             <a class="sideBarAttribute">Maps</a> <br>
             <a class="sideBarAttribute">Info</a> <br>
-            <a class="sideBarAttribute">Creators</a> <br>
         </div>
 
 
-        <div id="StateParkBoxWrapper">
+        <div id="InfoWrapper">
+            <div id="StateParkBoxWrapper">
 
-            <a class="StateParkBox" href="{{ url_for('views.CoopersRock') }}">
-                <img src="{{ url_for('static', filename='Images/CoopersRock.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.CoopersRock') }}">
+                    <img src="{{ url_for('static', filename='Images/CoopersRock.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Coopers Rock State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Coopers Rock State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Greenbrier') }}">
-                <img src="{{ url_for('static', filename='Images/Greenbrier.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Greenbrier') }}">
+                    <img src="{{ url_for('static', filename='Images/Greenbrier.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Greenbrier State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Greenbrier State Forest</p>
 
-                    <p class="StateParkAbout" > Like I would totally come here 
-                    and then 'come' here, if u know what I mean :), like honestly it's just so uwu and cool here. The amogus body guards are free! 
-                    They'll even pleasure u whenever u want</p>
+                        <p class="StateParkAbout" > Like I would totally come here 
+                        and then 'come' here, if u know what I mean :), like honestly it's just so uwu and cool here. The amogus body guards are free! 
+                        They'll even pleasure u whenever u want</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Cabwaylingo') }}">
-                <img src="{{ url_for('static', filename='Images/Cabwaylingo.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Cabwaylingo') }}">
+                    <img src="{{ url_for('static', filename='Images/Cabwaylingo.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Cabwaylingo State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Cabwaylingo State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Kanawha') }}">
-                <img src="{{ url_for('static', filename='Images/Kanawha.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Kanawha') }}">
+                    <img src="{{ url_for('static', filename='Images/Kanawha.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Kanawha State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Kanawha State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.CalvinPrice') }}">
-                <img src="{{ url_for('static', filename='Images/CalvinPrice.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.CalvinPrice') }}">
+                    <img src="{{ url_for('static', filename='Images/CalvinPrice.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Calvin Price State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Calvin Price State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.CampCreek') }}">
-                <img src="{{ url_for('static', filename='Images/CampCreek.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.CampCreek') }}">
+                    <img src="{{ url_for('static', filename='Images/CampCreek.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Camp Creek State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Camp Creek State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Panther') }}">
-                <img src="{{ url_for('static', filename='Images/Panther.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Panther') }}">
+                    <img src="{{ url_for('static', filename='Images/Panther.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Panther State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Panther State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Seneca') }}">
-                <img src="{{ url_for('static', filename='Images/Seneca.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Seneca') }}">
+                    <img src="{{ url_for('static', filename='Images/Seneca.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Seneca State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Seneca State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>
+                    </div>
+                </a>
 
-            <a class="StateParkBox" href="{{ url_for('views.Kumbrabow') }}">
-                <img src="{{ url_for('static', filename='Images/Kumbrabow.jpg') }}" class="StateParkImg">
+                <a class="StateParkBox" href="{{ url_for('views.Kumbrabow') }}">
+                    <img src="{{ url_for('static', filename='Images/Kumbrabow.jpg') }}" class="StateParkImg">
 
-                <div class="StateParkUnderTitle">
-                    <p class="StateParkTitle" >Kumbrabow State Forest</p>
+                    <div class="StateParkUnderTitle">
+                        <p class="StateParkTitle" >Kumbrabow State Forest</p>
 
-                    <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
-                    12,747 acres through Monongalia and Preston County.
-                    This park offers many activities where you can relax and have fun.</p>
+                        <p class="StateParkAbout" >A place to find the best views in West Virginia. The forest contains
+                        12,747 acres through Monongalia and Preston County.
+                        This park offers many activities where you can relax and have fun.</p>
 
-                </div>
-            </a>            
+                    </div>
+                </a>            
+            </div>
         </div>
 
     </body>
