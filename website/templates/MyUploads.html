@@ -2,25 +2,21 @@
 
 <html>
     <head>
-        <title>My Uploads</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/MyUploads.css') }}"
-        <script src="{{ url_for('static', filename='Javascript/Home.js') }}"></script>
+        <title>CAC 2022</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/ButtonBox.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/MyUploads.css') }}">
+        <script src="{{url_for('static', filename='Javascript/Home.js')}}"></script>
     </head>
 
     <body>
         <div id="topMenu">
-            <div id="titleText">
-                <h1>West Virginia State Forests</h1>
-            </div>
-
-            <div id="titleImg">
-                <img id="LogoImg" src="{{ url_for('static', filename='Images/SpaghettiCodeInc.png') }}">
-            </div>
-
+            <h1 id="titleText">West Virginia State Forests</h1>
         </div>
 
         <div id="sideBar">
+            
             <a class="sideBarAttribute" href="{{ url_for('views.Home') }}"> Home</a>
 
             {%if not current_user.is_authenticated %}
@@ -35,13 +31,17 @@
 
             <a class="sideBarAttribute">Maps</a> <br>
             <a class="sideBarAttribute">Info</a> <br>
-            <a class="sideBarAttribute">Creators</a> <br>
         </div>
 
-        
-        <div id=MyUploads>
 
+
+        <div id="StateParkBoxWrapper">
+            <div id=MyUploads>
+
+            </div>
         </div>
+
+
 
         <script>
 
