@@ -87,7 +87,7 @@
                 </div>
 
                 {% if current_user.is_authenticated%}
-                <button id=uploadPictureButton onclick="unveilUploadForm()">Toggle Image Upload Form</button>
+                <a href="#uploadForm"> <button id=uploadPictureButton onclick="unveilUploadForm()">Toggle Image Upload Form</button></a>
                 {% else %} 
                 <a id=uploadPictureButton href="{{ url_for('auth.SignUp') }}"> Login to Upload to the Map </a>
                 {% endif %}                
@@ -164,7 +164,7 @@
                 id = id.replace(":", "");
                 id = id.replace(":", "");
 
-                marker.bindPopup("<b>" + date + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "'>");
+                marker.bindPopup("<b>" + date + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "' style='max-width:30vh; max-height:30vh;'>");
                 
                 if(PICTURESTOSHOW > 0){
                     addImageToPictureFeed(id);

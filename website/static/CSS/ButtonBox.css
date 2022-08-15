@@ -1,7 +1,7 @@
 .StateParkBox{
     float: left;
 
-    width: 24vh;
+    width: 26.5vh;
 
     border: 5px solid black;
     padding: 1%;
@@ -11,7 +11,9 @@
     color: black;
 
     transition: .4s;
-    margin: .6%;
+    margin-left: 1%;
+    margin-top: .8%; 
+
     background-color: DDE2C6;
     font-size: 15px;
     text-decoration: none;

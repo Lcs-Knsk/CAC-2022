@@ -6,9 +6,10 @@ html, body{
 
 #sideBar{
     position: fixed;
-    background-color: #334139;
-    width: 17vh;
-    height: 100vh;
+    background-color: #4a4b4a;
+    width: 20vh;
+    /* When changing width, also change margin for StateParkBoxWrapper*/
+    height: 1000vh;
     margin-top: 30px;
 
 }
@@ -45,7 +46,7 @@ html, body{
 #StateParkBoxWrapper{
     display: inline-block;
     margin-top: 40px;
-    margin-left: 140px;
+    margin-left: 155px;
 }
 
 
