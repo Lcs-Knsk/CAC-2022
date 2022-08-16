@@ -6,9 +6,6 @@ from . import db
 from .models import db_coopersrock, db_greenbrier, db_cabwaylingo, db_calvinPrice
 from .models import db_campCreek, db_kanawha, db_kumbrabow, db_panther, db_seneca
 
-import mysql.connector
-
-
 views = Blueprint('views', __name__)
 
 UPLOAD = "C://..Coding//.CAC-2022//CAC-2022//website//static//UPLOAD_FOLDER"

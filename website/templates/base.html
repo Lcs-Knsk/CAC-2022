@@ -154,21 +154,33 @@
                 }
             }
 
-            function uploadImage(id, date, location, description, is_caution){
-                position = location.split(":")
-
-                if(is_caution) var marker = L.marker([position[0], position[1]], {icon:cautionIcon}).addTo(map);
-                else var marker = L.marker([position[0], position[1]]).addTo(map);
-
-                id = id.replace(" ", "_");
-                id = id.replace(":", "");
-                id = id.replace(":", "");
-
-                marker.bindPopup("<b>" + date + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "' style='max-width:30vh; max-height:30vh;'>");
+            function uploadImage(id, date, location, description, is_caution){     
+                showDate = date;     
+                date = date.split("/");                
+                var today = new Date();
                 
-                if(PICTURESTOSHOW > 0){
-                    addImageToPictureFeed(id);
-                    PICTURESTOSHOW -= 1;
+                if(parseInt(date[0]) == today.getMonth()+1){
+                    if(parseInt(date[1])+7 >= today.getDate()){
+                        if(parseInt(date[2])+2000 == today.getFullYear()){
+
+                            position = location.split(":")
+
+                            if(is_caution) var marker = L.marker([position[0], position[1]], {icon:cautionIcon}).addTo(map);
+                            else var marker = L.marker([position[0], position[1]]).addTo(map);
+
+                            id = id.replace(" ", "_");
+                            id = id.replace(":", "");
+                            id = id.replace(":", "");
+
+                            marker.bindPopup("<b>" + showDate + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "' style='max-width:30vh; max-height:30vh;'>");
+
+
+                            if(PICTURESTOSHOW > 0){
+                                addImageToPictureFeed(id);
+                                PICTURESTOSHOW -= 1;
+                            }
+                        }
+                    }
                 }
             }
 
