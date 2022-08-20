@@ -7,7 +7,7 @@ function unveilUploadForm(){
     else{
         form.style.display = "none";
     }
-    console.log("Changed")
+    console.log("Changed");
 }
 
 function sendToSignUp(){

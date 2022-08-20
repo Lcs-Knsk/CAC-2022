@@ -28,8 +28,14 @@
             </a> <br>
             {% endif %}
 
-            <a class="sideBarAttribute">Maps</a> <br>
+            <a class="sideBarAttribute" href="{{ url_for('views.StateView') }}">State View</a> <br>
             <a class="sideBarAttribute">Info</a> <br>
+
+            {% if current_user.is_authenticated %}
+            <a class="sideBarAttribute" href="{{ url_for('auth.logout') }}"> Sign Out</a>
+            <br>
+            {% endif %}
+
         </div>
 
 

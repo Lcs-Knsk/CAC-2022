@@ -19,7 +19,9 @@ def Home():
 def Uploads():
      return render_template('MyUploads.html', user=current_user)
 
-
+@views.route("/state_view")
+def StateView():
+     return render_template('wvState.html')
 
 # All of the state park pages
 
@@ -52,6 +54,7 @@ def CoopersRock():
      # Gets the data from the database to the map
      Images = db_coopersrock.query.all()
 
+     # Sorts the data in a list of lists
      listOfMarkers = []
      for i in range(len(Images)):
           newMarker = []
