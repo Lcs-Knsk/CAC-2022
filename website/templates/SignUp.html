@@ -1,75 +1,47 @@
-<!DOCTYPE html>
+{% extends 'homeBase.html' %}
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-        <title>Sign Up</title>
+{% block title %} Sign Up {% endblock %}
 
+{% block ExtraLinks %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/auth.css') }}">
+{% endblock %}
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/auth.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mainPage.css')}}">
-    </head>
+{% block content %}
 
-    <body>
+<form method="POST" id="signUpForm">
+    <h3 align="center">Sign Up</h3>
+    <div align="center">
+        <label for="Username">Username: </label>
+        <input type="Username" id="Username" name="Username" placeholder="Enter Username">
+    </div align="center">
 
-        <div id="topMenu">
-            <h1 id="titleText">West Virginia State Forests</h1>
-        </div>
+    <div align="center">
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" placeholder="Enter Password">
+    </div>
 
-        <div id="sideBar">
-            
-            <a class="sideBarAttribute" href="{{ url_for('views.Home') }}"> Home</a>
+    <div align="center">
+        <label for="Password2">Password:    </label>
+        <input type="password" id="Password2" name="Password2" placeholder="Confirm Password">
+    </div>
+    <br>
+    <br>
+    <button type="submit" name="signUpForm" class="submitButton">SUBMIT</button>
+</form>
+<form method="POST" id="loginForm">
+    <h3 align="center">Log In</h3>
+    <div align="center">
+        <label for="Username">Username: </label>
+        <input type="Username" id="Username" name="Username" placeholder="Enter Username">
+    </div>
 
-            {%if not current_user.is_authenticated %}
-            <a class="sideBarAttribute" href="{{ url_for('auth.SignUp') }}">
-            Sign Up or Login
-            </a> <br>
-            {% else %}
-            <a class="sideBarAttribute" href="{{ url_for('views.Uploads') }}">
-            Uploaded pictures
-            </a> <br>
-            {% endif %}
+    <div align="center">
+        <label for="Password">Password:  </label>
+        <input type="password" id="Password" name="Password" placeholder="Enter Password">
+    </div>
+    <br>
+    <br>
+    <button type="submit" name="loginForm" class="submitButton">LOG IN</button>
+</form>
 
-            <a class="sideBarAttribute">Maps</a> <br>
-            <a class="sideBarAttribute">Info</a> <br>
-        </div>
-
-
-        <form method="POST" id="signUpForm">
-            <h3 align="center">Sign Up</h3>
-            <div align="center">
-                <label for="Username">Username: </label>
-                <input type="Username" id="Username" name="Username" placeholder="Enter Username">
-            </div align="center">
-
-            <div align="center">
-                <label for="Password">Password:</label>
-                <input type="password" id="Password" name="Password" placeholder="Enter Password">
-            </div>
-
-            <div align="center">
-                <label for="Password2">Password:    </label>
-                <input type="password" id="Password2" name="Password2" placeholder="Confirm Password">
-            </div>
-            <br>
-            <br>
-            <button type="submit" name="signUpForm" class="submitButton">SUBMIT</button>
-        </form>
-        <form method="POST" id="loginForm">
-            <h3 align="center">Log In</h3>
-            <div align="center">
-                <label for="Username">Username: </label>
-                <input type="Username" id="Username" name="Username" placeholder="Enter Username">
-            </div>
-
-            <div align="center">
-                <label for="Password">Password:  </label>
-                <input type="password" id="Password" name="Password" placeholder="Enter Password">
-            </div>
-            <br>
-            <br>
-            <button type="submit" name="loginForm" class="submitButton">LOG IN</button>
-        </form>
-    </body>
-</html>
+{% endblock %}
