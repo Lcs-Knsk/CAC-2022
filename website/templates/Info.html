@@ -8,21 +8,25 @@
     <body>
         <div id="topBar">
             <div id="Title">
-                <a>Title</a>
+                <a href="{{ url_for('views.Info') }}">State Forest App</a>
             </div> 
 
             <div id="StateView">
-                <a>State View</a>
+                <a href="{{ url_for('views.StateView') }}">State View</a>
             </div>
             <div id="Boxes">
                 <a>Boxes</a>
             </div>
             <div id="UploadedPictures">
-                <a>Uploaded Pictures</a>
+                <a href="{{ url_for('views.Uploads') }}">Uploaded Pictures</a>
             </div>
             <div id="SignIn">
-                <a id="SignInText">Sign In</a>
+                <a id="SignInText" href="{{ url_for('auth.SignUp') }}">Sign In</a>
             </div>
+        </div>
+
+        <div id="Body"> 
+
         </div>
 
     </body>
