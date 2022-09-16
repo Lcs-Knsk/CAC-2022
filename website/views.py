@@ -23,6 +23,10 @@ def Uploads():
 def StateView():
      return render_template('wvState.html')
 
+@views.route("/info")
+def Info():
+     return render_template('Info.html')
+
 # All of the state park pages
 
 @views.route("/coopers_rock", methods=['GET', 'POST'])

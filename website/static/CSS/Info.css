@@ -1,0 +1,81 @@
+#topBar{
+    height: 10vh;
+    background-color: #32936F;
+    min-height: 40px;
+    width: 100%;
+}
+
+#Title{
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin: 1% 0%;
+    border-right: 5px solid black;
+}
+
+#StateView{
+    float: left;
+    text-align: center;
+    margin: 1% 3%;
+    /*because margin left on other tabs also have +3% from margin right
+    on the other tabs*/
+    margin-left: 6%;
+}
+
+#Boxes{
+    float: left;
+    text-align: center;
+    margin: 1% 3%;
+}
+
+#UploadedPictures{
+    float: left;
+    text-align: center;
+    margin: 1% 3%;
+}
+
+#SignIn{
+    width: 10%;
+    float: right;
+    text-align: center;
+    margin-right: 3%;
+    border: 1px solid black;
+    padding: .5%;
+    margin-top: .65%;
+    background-color: gray;
+
+    transition-duration: 150ms;
+}
+
+#SignIn:hover{
+    background-color: rgb(103, 103, 103);
+}
+
+#SignInText{
+    /*Need this because by default it will be underline*/
+    text-decoration: none;
+}
+
+html, body{
+    margin: 0px;
+    background-color: #DDE2C6;;
+}
+
+a{
+    font-size: 4vh;
+    font-family: "Georgia";
+    position: relative;
+    text-decoration: none;
+}
+a::after {
+    border-top: .3vh solid rgb(209, 208, 208);
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: .3vh;
+    left: 0;
+    transition: right .4s cubic-bezier(0,.5,0,1);
+}
+a:hover::after {
+right: 0;
+}
