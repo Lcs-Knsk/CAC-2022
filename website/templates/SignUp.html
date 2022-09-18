@@ -1,13 +1,71 @@
-{% extends 'homeBase.html' %}
+<!DOCTYPE html>
+<html>
+    <!--{% extends 'homeBase.html' %}
 
-{% block title %} Sign Up {% endblock %}
+    {% block title %} Sign Up {% endblock %}
+    
+    {% block ExtraLinks %}-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/auth.css') }}">
+    <!--{% endblock %}
+    
+    {% block content %}-->
+    <body>
+        <div class="background">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                    <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+                </div>
+                <form id="LogIn" class="input-group">
+                    <input type="text" class="input-field" placeholder="Enter Username" required>
+                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                    <button type="submit" name="loginForm" class="submit-btn">Log In</button>
+                </form>
+                <form id="SignUp" class="input-group">
+                    <input type="text" class="input-field" placeholder="Enter Username" required>
+                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+                    <button type="submit" name="loginForm" class="submit-btn">Sign Up</button>
+                </form>
 
-{% block ExtraLinks %}
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/auth.css') }}">
-{% endblock %}
+            </div>
+        </div>
 
-{% block content %}
 
+
+        <div id="topBar">
+            <div id="Title">
+                <a href="{{ url_for('views.Info') }}">State Forest App</a>
+            </div> 
+
+            <div id="StateView">
+                <a href="{{ url_for('views.StateView') }}">State View</a>
+            </div>
+            <div id="UploadedPictures">
+                <a href="{{ url_for('views.Uploads') }}">Uploaded Pictures</a>
+            </div>
+            
+        </div>
+        <script>
+            var x = document.getElementById("LogIn");
+            var y = document.getElementById("SignUp");
+            var z = document.getElementById("btn");
+
+            function signup(){
+                x.style.left = "-400px";
+                y.style.left = "50px";
+                z.style.left = "110px";
+            }
+            function login(){
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0px";
+            }
+        </script>
+    </body>
+<!---
 <form method="POST" id="signUpForm">
     <h3 align="center">Sign Up</h3>
     <div align="center">
@@ -45,3 +103,5 @@
 </form>
 
 {% endblock %}
+-->
+</html>
