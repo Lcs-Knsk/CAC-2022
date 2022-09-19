@@ -17,17 +17,18 @@
                     <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                     <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
                 </div>
-                <form id="LogIn" class="input-group">
-                    <input type="text" class="input-field" placeholder="Enter Username" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                <form id="LogIn" class="input-group" method="POST">
+                    <input type="text" class="input-field" name="Username" placeholder="Enter Username" required>
+                    <input type="password" class="input-field" name="Password" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>Remember Password</span>
                     <button type="submit" name="loginForm" class="submit-btn">Log In</button>
                 </form>
-                <form id="SignUp" class="input-group">
-                    <input type="text" class="input-field" placeholder="Enter Username" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                <form id="SignUp" class="input-group" method="POST">
+                    <input type="text" class="input-field" name="Username" placeholder="Enter Username" required>
+                    <input type="password" class="input-field" name="Password" placeholder="Enter Password" required>
+                    <input type="password" class="input-field" name="Password2" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
-                    <button type="submit" name="loginForm" class="submit-btn">Sign Up</button>
+                    <button type="submit" name="signUpForm" class="submit-btn">Sign Up</button>
                 </form>
 
             </div>
@@ -66,41 +67,7 @@
         </script>
     </body>
 <!---
-<form method="POST" id="signUpForm">
-    <h3 align="center">Sign Up</h3>
-    <div align="center">
-        <label for="Username">Username: </label>
-        <input type="Username" id="Username" name="Username" placeholder="Enter Username">
-    </div align="center">
 
-    <div align="center">
-        <label for="Password">Password:</label>
-        <input type="password" id="Password" name="Password" placeholder="Enter Password">
-    </div>
-
-    <div align="center">
-        <label for="Password2">Password:    </label>
-        <input type="password" id="Password2" name="Password2" placeholder="Confirm Password">
-    </div>
-    <br>
-    <br>
-    <button type="submit" name="signUpForm" class="submitButton">SUBMIT</button>
-</form>
-<form method="POST" id="loginForm">
-    <h3 align="center">Log In</h3>
-    <div align="center">
-        <label for="Username">Username: </label>
-        <input type="Username" id="Username" name="Username" placeholder="Enter Username">
-    </div>
-
-    <div align="center">
-        <label for="Password">Password:  </label>
-        <input type="password" id="Password" name="Password" placeholder="Enter Password">
-    </div>
-    <br>
-    <br>
-    <button type="submit" name="loginForm" class="submitButton">LOG IN</button>
-</form>
 
 {% endblock %}
 -->
