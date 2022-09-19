@@ -54,4 +54,4 @@ def SignUp():
 @auth.route('/logout')
 def logout():
      logout_user()
-     return redirect(url_for('views.Home'))
+     return redirect(url_for('views.Info'))
