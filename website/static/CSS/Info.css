@@ -12,6 +12,7 @@
     z-index: 9999;
     top: 0;
     right: 0;
+
 }
 
 #Title{
@@ -52,13 +53,13 @@
     border: 1px solid black;
     padding: .5%;
     margin-top: .65%;
-    background-color: gray;
+    background-color: #917c63;
     
     transition-duration: 150ms;
 }
 
 #SignIn:hover{
-    background-color: rgb(103, 103, 103);
+    background-color: #a9947b;
 }
 
 #HelloUser{
@@ -80,18 +81,19 @@
 
 
 #WelcomeTitle{
-    font-size: 20vh;
+    font-size: 15vh;
     z-index: 999;
-    color: rgba(0, 0, 0, 0.682);
-    text-align: center;
-    padding: 35vh 0vh 45vh 0vh;
+    color: rgba(255, 255, 255, 0.682);
+    text-align: left;
+    padding: 35vh 0vh 45vh 10vh;
     margin: 0px;
-    
+    font-family: sans-serif;
 
 }
 
 #BoxContainer{
     padding-bottom: 20vh;
+    background-color: white;
 }
 
 
