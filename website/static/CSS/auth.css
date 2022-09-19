@@ -175,6 +175,7 @@ a{
     font-family: "Georgia";
     position: relative;
     text-decoration: none;
+    color: black;
 }
 a::after {
     border-top: .3vh solid rgb(209, 208, 208);
@@ -183,7 +184,8 @@ a::after {
     right: 100%;
     bottom: .3vh;
     left: 0;
-    transition: right .4s cubic-bezier(0,.5,0,1);
+    transition: right .6s cubic-bezier(0,.5,0,1);
+    font-style: black;
 }
 a:hover::after {
 right: 0;
