@@ -13,7 +13,7 @@ UPLOAD = "C://..Coding//.CAC-2022//CAC-2022//website//static//UPLOAD_FOLDER"
 
 @views.route("/")
 def Home():
-     return render_template("Home.html")
+     return render_template("Info.html")
 
 @views.route("/my_uploads", methods=['GET', 'POST'])
 def Uploads():
@@ -23,9 +23,9 @@ def Uploads():
 def StateView():
      return render_template('wvState.html')
 
-@views.route("/info")
+@views.route("/")
 def Info():
-     return render_template('Info.html')
+     return "<h3>Change</h3>"
 
 # All of the state park pages
 

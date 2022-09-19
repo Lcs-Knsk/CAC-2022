@@ -18,15 +18,17 @@
                     <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
                 </div>
                 <form id="LogIn" class="input-group" method="POST">
+                    <p id="ErrorMsg">{{ErrorMessage}}</p>
                     <input type="text" class="input-field" name="Username" placeholder="Enter Username" required>
                     <input type="password" class="input-field" name="Password" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>Remember Password</span>
                     <button type="submit" name="loginForm" class="submit-btn">Log In</button>
                 </form>
                 <form id="SignUp" class="input-group" method="POST">
+                    <p id="ErrorMsg">{{ErrorMessage}}</p>
                     <input type="text" class="input-field" name="Username" placeholder="Enter Username" required>
                     <input type="password" class="input-field" name="Password" placeholder="Enter Password" required>
-                    <input type="password" class="input-field" name="Password2" placeholder="Enter Password" required>
+                    <input type="password" class="input-field" name="Password2" placeholder="Retype Password" required>
                     <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
                     <button type="submit" name="signUpForm" class="submit-btn">Sign Up</button>
                 </form>
@@ -53,6 +55,10 @@
             var x = document.getElementById("LogIn");
             var y = document.getElementById("SignUp");
             var z = document.getElementById("btn");
+
+            {% if SaveState %}
+            signup();
+            {% endif %}
 
             function signup(){
                 x.style.left = "-400px";

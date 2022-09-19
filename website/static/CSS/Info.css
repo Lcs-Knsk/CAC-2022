@@ -61,6 +61,23 @@
     background-color: rgb(103, 103, 103);
 }
 
+#HelloUser{
+    width: 10%;
+    float: right;
+    margin-right: 3%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#Hello{
+    font-size: 4vh;
+    font-family: "Georgia";
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
 
 #WelcomeTitle{
     font-size: 20vh;

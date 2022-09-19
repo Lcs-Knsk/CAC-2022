@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Blueprint, request, flash, redirect, url_for
+from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -9,27 +9,33 @@ auth = Blueprint('auth', __name__)
 
 @auth.route("/sign_up", methods=['GET', 'POST'])
 def SignUp():
+     # Will tell user if there was an error getting into the account
+     ErrorMessage = ""
+     # Tells if user left off on sign in or sign up, False=Login True=Sign Up
+     SaveState = False
+     
      if request.method == 'POST':
 
           if "signUpForm" in request.form:
+               SaveState = True
                UserName = request.form.get('Username')
                password1 = request.form.get('Password')
                password2 = request.form.get('Password2')
 
                user = User.query.filter_by(username=UserName).first()
                if user:
-                    flash('Username already exists.', category='error')
+                    ErrorMessage="Username already exists."
                elif len(UserName) < 4:
-                    flash('First name must be greater than 3 characters.', category='error')
+                    ErrorMessage = "Username must be at least 4 characters."
                elif password1 != password2:
-                    flash('Passwords don\'t match.', category='error')
-               elif len(password1) < 7:
-                    flash('Password must be at least 7 characters.', category='error')
+                    ErrorMessage = "Passwords do not match."
+               elif len(password1) < 5:
+                    ErrorMessage = "Password must be at least 5 characters."
                else:
                     new_user = User(username=UserName, password=generate_password_hash(password1, method='sha256'))
+                    print("Added new user")
                     db.session.add(new_user)
                     db.session.commit()
-                    flash('Account created!', category='success')
                     login_user(new_user, remember=True)
                     return redirect(url_for('views.Home'))
          
@@ -43,15 +49,15 @@ def SignUp():
                          login_user(user, remember=True)
                          return redirect(url_for('views.Home'))
                     else:
-                         flash('Incorrect password.', category='error')
+                         ErrorMessage = "Incorect password."
                else:
-                    flash('Username does not exist.', category='error')
+                    ErrorMessage = "Username does not exists."
 
 
-     return render_template("SignUp.html", test="Hello Flask", testCase=True)
+     return render_template("SignUp.html", test="Hello Flask", testCase=True, ErrorMessage="*" + ErrorMessage, SaveState=SaveState)
 
 
 @auth.route('/logout')
 def logout():
      logout_user()
-     return redirect(url_for('views.Info'))
+     return redirect(url_for('views.Home'))

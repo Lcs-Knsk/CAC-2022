@@ -9,7 +9,7 @@
     <body>
         <div id="topBar">
             <div id="Title">
-                <a href="{{ url_for('views.Info') }}">State Forest App</a>
+                <a href="{{ url_for('views.Home') }}">State Forest App</a>
             </div> 
 
             <div id="StateView">
@@ -21,9 +21,17 @@
             <div id="UploadedPictures">
                 <a href="{{ url_for('views.Uploads') }}">Uploaded Pictures</a>
             </div>
+            
+            {% if not current_user.is_authenticated %}
             <div id="SignIn">
                 <a id="SignInText" href="{{ url_for('auth.SignUp') }}">Sign In</a>
             </div>
+            {% else %}
+            <div id="HelloUser">
+                <a id="SignInText" href="{{ url_for('auth.logout') }}">Sign Out</a>
+ 
+            </div>
+            {% endif %}
         </div>
 
         <!--Keeps background image on the screen-->
