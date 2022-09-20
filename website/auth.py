@@ -1,3 +1,4 @@
+from msilib.schema import Error
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -53,8 +54,12 @@ def SignUp():
                else:
                     ErrorMessage = "Username does not exists."
 
+     if not len(ErrorMessage) == 0:
+          return render_template("SignUp.html", test="Hello Flask", testCase=True, ErrorMessage="*" + ErrorMessage, SaveState=SaveState)
+     else:
+          return render_template("SignUp.html", test="Hello Flask", testCase=True, SaveState=SaveState)
 
-     return render_template("SignUp.html", test="Hello Flask", testCase=True, ErrorMessage="*" + ErrorMessage, SaveState=SaveState)
+          
 
 
 @auth.route('/logout')
