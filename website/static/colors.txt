@@ -4,6 +4,11 @@ DDE2C6: White, Page background
 32936F: Light Green, Title background
 Black: Black, everything black
 E10: Deez, Nuts
+#ada49a: the beige color used on the login page
+
+OUR FONTS:
+for login page box: sans serif
+the header stuff: georgia
 
 Are you a fan of imagine dragons?
 Imagine dragen deez nuts across your face
