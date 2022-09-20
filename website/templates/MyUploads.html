@@ -1,178 +1,207 @@
-{% extends 'homeBase.html' %}
+<!DOCTYPE html>
 
-{% block title %} My Uploads {% endblock %}
+<html>
+    <head>
+        <title>My Uploads</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/MyUploads.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Info.css') }}"> 
+    </head>
 
-{% block ExtraLinks %}
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/MyUploads.css') }}">
-{% endblock %}
+    <body>
+        <div id="topBar">
+            <div id="Title">
+                <a href="{{ url_for('views.Home') }}">State Forest App</a>
+            </div> 
 
-{% block content %}
-<div id=MyUploads>
+            <div id="StateView">
+                <a href="{{ url_for('views.StateView') }}">State View</a>
+            </div>
+            <div id="Boxes">
+                <a>Boxes</a>
+            </div>
+            <div id="UploadedPictures">
+                <a href="{{ url_for('views.Uploads') }}">Uploaded Pictures</a>
+            </div>
+            
+            {% if not current_user.is_authenticated %}
+            <div id="SignIn">
+                <a id="SignInText" href="{{ url_for('auth.SignUp') }}">Sign In</a>
+            </div>
+            {% else %}
+            <div id="HelloUser">
+                <a id="SignInText" href="{{ url_for('auth.logout') }}">Sign Out</a>
+ 
+            </div>
+            {% endif %}
+        </div>
 
-</div>
-{% endblock %}
+        <div id=MyUploads>
 
-{% block Javascript%}
-<script>
-    {% for upload in user.uploadsCR %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
+        </div>
 
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
+        <script>
+            {% for upload in user.uploadsCR %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Coopers Rock");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsGB %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Greenbrier");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsCWL %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Cabwaylingo");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsKNW %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Kanawha");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsCP %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Calvin Price");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsCC %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Camp Creek");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsP %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Panther");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsS %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Seneca");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            {% for upload in user.uploadsKBB %}
+            var id = "{{ upload.id }}";
+            var date = "{{ upload.date }}";
+            var description = "{{ upload.description }}"
+        
+            id = id.replace(" ", "_");
+            id = id.replace(":", "");
+            id = id.replace(":", "");
+        
+            addImageToPictureFeed(id, date, description, "Kumbrabow");
+        
+            console.log(date)
+        
+            {% endfor %}
+        
+            function addImageToPictureFeed(id, date, description, title){
+        
+                var div = document.createElement("div");
+                div.id = "UploadedImages"
+        
+                var img = document.createElement("img");
+                img.src = "static/UPLOAD_FOLDER/" + id;
+                img.id = "UploadedImage";
+        
+                var dates = document.createElement("h4");
+                dates.innerHTML = title + ": " + date;
+                dates.id = "UploadDate";
+        
+                var descriptions = document.createElement("p");
+                descriptions.innerHTML = description;
+                descriptions.id = "UploadDescription";
+        
+                div.appendChild(img);
+                div.appendChild(dates);
+                div.appendChild(descriptions);
+        
+                var block = document.getElementById("MyUploads");
+                block.appendChild(div);
+        
+            }
+        </script>
 
-    addImageToPictureFeed(id, date, description, "Coopers Rock");
+    </body>
+</html>
 
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsGB %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Greenbrier");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsCWL %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Cabwaylingo");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsKNW %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Kanawha");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsCP %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Calvin Price");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsCC %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Camp Creek");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsP %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Panther");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsS %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Seneca");
-
-    console.log(date)
-
-    {% endfor %}
-
-    {% for upload in user.uploadsKBB %}
-    var id = "{{ upload.id }}";
-    var date = "{{ upload.date }}";
-    var description = "{{ upload.description }}"
-
-    id = id.replace(" ", "_");
-    id = id.replace(":", "");
-    id = id.replace(":", "");
-
-    addImageToPictureFeed(id, date, description, "Kumbrabow");
-
-    console.log(date)
-
-    {% endfor %}
-
-    function addImageToPictureFeed(id, date, description, title){
-
-        var div = document.createElement("div");
-        div.id = "UploadedImages"
-
-        var img = document.createElement("img");
-        img.src = "static/UPLOAD_FOLDER/" + id;
-        img.id = "UploadedImage";
-
-        var dates = document.createElement("h4");
-        dates.innerHTML = title + ": " + date;
-        dates.id = "UploadDate";
-
-        var descriptions = document.createElement("p");
-        descriptions.innerHTML = description;
-        descriptions.id = "UploadDescription";
-
-        div.appendChild(img);
-        div.appendChild(dates);
-        div.appendChild(descriptions);
-
-        var block = document.getElementById("MyUploads");
-        block.appendChild(div);
-
-    }
-</script>
-{% endblock %}
