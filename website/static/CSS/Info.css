@@ -93,7 +93,9 @@
 
 #BoxContainer{
     padding-bottom: 20vh;
+    padding-top: 1vh;
     background-color: white;
+    height: 400px;
 }
 
 
