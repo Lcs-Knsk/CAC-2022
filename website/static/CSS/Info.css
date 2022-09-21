@@ -79,31 +79,36 @@
     color: black;
 }
 
-
-#WelcomeTitle{
-    font-size: 15vh;
-    z-index: 999;
-    color: rgba(255, 255, 255, 0.75);
-    text-align: left;
-    padding: 35vh 0vh 45vh 10vh;
-    margin: 0px;
-    font-family: sans-serif;
-
-}
-
-#BoxContainer{
-    padding-bottom: 20vh;
-    background-color: white;
-}
-
-
-html, body{
+#WelcomeBackground{
+    padding-top: 5%;
     margin: 0px;
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(134, 133, 133, 0.5)), url("infoPageBackground2.jpg");
     text-align: center;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+
+#WelcomeTitle{
+    font-size: 15vh;
+    z-index: 999;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: left;
+    padding: 35vh 0vh 37.6vh 10vh;
+    margin: 0px;
+    font-family: sans-serif;
+
+
+}
+
+#BoxContainer{
+    padding-bottom: 20vh;
+}
+
+
+html, body{
+    margin: 0px;
 }
 
 a{
