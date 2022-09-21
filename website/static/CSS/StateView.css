@@ -1,10 +1,4 @@
 
-#container{
-    max-width: 1000px;
-    width: 40vw;
-    padding-top: 1.5vh;
-}
-
 #topBar{
     height: 10vh;
     background-color: white;
@@ -29,9 +23,6 @@
     margin: 1% 0%;
     border-right: 5px solid black;
     
-}
-
-#StateForestList{
 }
 
 #StateView{
@@ -109,6 +100,34 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+
+#container{
+    max-width: 1000px;
+    width: 40%;
+    padding-top: 1.5vh;
+    float: left;
+    margin-right: 10%;
+}
+
+#FirstSection{
+    width: 100%;
+}
+
+#StateForestListHeader{
+    font-size: 5vh;
+    text-decoration: underline;
+    font-family: "Georgia";
+    margin-bottom: 0px;
+}
+
+#StateForestList{
+    width: 20%;
+    float: left;
+
+}
+
+
 
 body, html{
     padding: 0px;
