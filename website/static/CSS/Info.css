@@ -83,7 +83,7 @@
 #WelcomeTitle{
     font-size: 15vh;
     z-index: 999;
-    color: rgba(255, 255, 255, 0.682);
+    color: rgba(255, 255, 255, 0.75);
     text-align: left;
     padding: 35vh 0vh 45vh 10vh;
     margin: 0px;
@@ -115,6 +115,7 @@ a{
     text-decoration: none;
     color: black;
 }
+
 a::after {
     border-top: .3vh solid rgb(209, 208, 208);
     content: "";
@@ -125,6 +126,7 @@ a::after {
     transition: right .6s cubic-bezier(0,.5,0,1);
     font-style: black;
 }
+
 a:hover::after {
 right: 0;
 }

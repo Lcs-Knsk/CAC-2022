@@ -2,6 +2,11 @@ html{
     padding-top: 5%;
     padding-left: 5%;
     padding-right: 5%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(134, 133, 133, 0.2)), url("myPictureBackground.jpg");
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #UploadedImages{
@@ -9,7 +14,7 @@ html{
     margin: 10px;
     border: 2px solid black;
     width: 300px;
-    background-color: rgb(255, 250, 244, .8);
+    background-color: rgb(255, 250, 244, .9);
 }
 
 #UploadedImage{

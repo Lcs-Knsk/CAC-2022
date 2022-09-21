@@ -9,17 +9,21 @@
     <body>
         <div id="topBar">
             <div id="Title">
-                <a href="{{ url_for('views.Home') }}">State Forest App</a>
+                <a href="{{ url_for('views.Home') }}">Forest Finder</a>
             </div> 
 
             <div id="StateView">
-                <a href="{{ url_for('views.StateView') }}">State View</a>
+                <a href="{{ url_for('views.StateView') }}">State Forests</a>
             </div>
             <div id="Boxes">
                 <a>Boxes</a>
             </div>
             <div id="UploadedPictures">
-                <a href="{{ url_for('views.Uploads') }}">Uploaded Pictures</a>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('views.Uploads') }}">My Pictures</a>
+                {% else %}
+                <a href="{{ url_for('auth.SignUp') }}">Sign In To Upload Pictures</a>
+                {% endif %}
             </div>
             
             {% if not current_user.is_authenticated %}
@@ -33,9 +37,6 @@
             </div>
             {% endif %}
         </div>
-
-        <!--Keeps background image on the screen-->
-
 
         <h3 id="WelcomeTitle">Forest Finder WV</h3>
         
