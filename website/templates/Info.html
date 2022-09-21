@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Info.css') }}"> 
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS/ButtonBox.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Divider.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
     </head>
     <body>
         <div id="topBar">
@@ -16,8 +18,8 @@
             <div id="StateView">
                 <a href="{{ url_for('views.StateView') }}">State Forests</a>
             </div>
-            <div id="Boxes">
-                <a>Boxes</a>
+            <div id="Groups">
+                <a>Groups</a>
             </div>
             <div id="UploadedPictures">
                 {% if current_user.is_authenticated %}
