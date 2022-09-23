@@ -29,29 +29,44 @@ def Info():
 
 # All of the state park pages
 
+def getImage():
+     Description = request.form.get('Description')
+     Date = datetime.date.today()
+     date = Date.strftime("%m/%d/%y")
+
+     Location = request.form.get('Location')
+     IsCaution = request.form.get('Is_Caution')
+     IsStar = request.form.get('Is_Star')
+
+     if(IsCaution == "on"):
+          IsCaution = True
+     else:
+          IsCaution = False
+     if(IsStar == "on"):
+          IsStar = True
+     else:
+          IsStar = False
+
+     Image = request.files['Image']
+     newName = Image.filename.split('.')
+     newName[0] = str(datetime.datetime.now())
+     Path = newName[0] + '.' + newName[1]
+
+     Path = os.path.join(UPLOAD, secure_filename(Path))
+     Image.save(Path)
+
+     return [(newName[0] + '.' + newName[1]), date, Location, Description, IsCaution, IsStar]
+
+
+
+
 @views.route("/coopers_rock", methods=['GET', 'POST'])
 def CoopersRock():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-          IsCaution = request.form.get('Is_Caution')
-
-          if(IsCaution == "on"):
-               IsCaution = True
-          else:
-               IsCaution = False
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_coopersrock(date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]), user_id=current_user.id, is_caution=IsCaution)
+          new_image = db_coopersrock(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
 
@@ -67,27 +82,19 @@ def CoopersRock():
           newMarker.append(Images[i].location)
           newMarker.append(Images[i].description)
           newMarker.append(Images[i].is_caution)
+          newMarker.append(Images[i].is_star)
           listOfMarkers.append(newMarker)
+
           
      return render_template("CoopersRock.html", title="Coopers Rock", markers=listOfMarkers, latitude=39.64390129350228, longitude=-79.81014851593424)
 
 @views.route('/greenbrier', methods=['GET', 'POST'])
 def Greenbrier():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_greenbrier(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_greenbrier(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
 
@@ -108,23 +115,13 @@ def Greenbrier():
 @views.route('/cabwaylingo', methods=['GET', 'POST'])
 def Cabwaylingo():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_cabwaylingo(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_cabwaylingo(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
-
+          
      # Gets the data from the database to the map
      Images = db_cabwaylingo.query.all()
 
@@ -142,23 +139,13 @@ def Cabwaylingo():
 @views.route('/kanawha', methods=['GET', 'POST'])
 def Kanawha():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_kanawha(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_kanawha(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
-
+          
      # Gets the data from the database to the map
      Images = db_kanawha.query.all()
 
@@ -176,20 +163,10 @@ def Kanawha():
 @views.route('/calvin_price', methods=['GET', 'POST'])
 def CalvinPrice():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_calvinPrice(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_calvinPrice(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
 
@@ -210,22 +187,13 @@ def CalvinPrice():
 @views.route('/camp_creek', methods=['GET', 'POST'])
 def CampCreek():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_campCreek(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_campCreek(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
+          
 
      # Gets the data from the database to the map
      Images = db_campCreek.query.all()
@@ -244,20 +212,10 @@ def CampCreek():
 @views.route('/panther', methods=['GET', 'POST'])
 def Panther():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_panther(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_panther(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
 
@@ -278,20 +236,10 @@ def Panther():
 @views.route('/seneca', methods=['GET', 'POST'])
 def Seneca():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_seneca(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_seneca(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
 
@@ -312,22 +260,13 @@ def Seneca():
 @views.route('/kumbrabow', methods=['GET', 'POST'])
 def Kumbrabow():
      if request.method == 'POST':
-          Description = request.form.get('Description')
-          Date = datetime.date.today()
-          date = Date.strftime("%m/%d/%y")
+          # All data sent from form put into a list
+          data = getImage()
 
-          Location = request.form.get('Location')
-
-          Image = request.files['Image']
-          newName = Image.filename.split('.')
-          newName[0] = str(datetime.datetime.now())
-          Path = newName[0] + '.' + newName[1]
-          Path = os.path.join(UPLOAD, secure_filename(Path))
-          Image.save(Path)
-
-          new_image = db_kumbrabow(user_id=current_user.id, date=date, location=Location, description=Description, id=(newName[0] + '.' + newName[1]))
+          new_image = db_kumbrabow(user_id=current_user.id, id=data[0], date=data[1], location=data[2], description=data[3], is_caution=data[4], is_star=data[5])
           db.session.add(new_image)
           db.session.commit()
+          
 
      # Gets the data from the database to the map
      Images = db_kumbrabow.query.all()

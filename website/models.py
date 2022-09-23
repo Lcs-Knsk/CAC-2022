@@ -1,3 +1,5 @@
+from email.policy import default
+from enum import unique
 from . import db
 from flask_login import UserMixin
 
@@ -8,7 +10,9 @@ class db_coopersrock(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 
 class db_greenbrier(db.Model):
     id = db.Column(db.String(1000), primary_key=True)
@@ -16,6 +20,7 @@ class db_greenbrier(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_cabwaylingo(db.Model):
@@ -23,7 +28,8 @@ class db_cabwaylingo(db.Model):
     date = db.Column(db.String(100))
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
-    is_caution = db.Column(db.Boolean, unique=False, default=False)    
+    is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_calvinPrice(db.Model):
@@ -32,6 +38,7 @@ class db_calvinPrice(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_campCreek(db.Model):
@@ -40,6 +47,7 @@ class db_campCreek(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_kanawha(db.Model):
@@ -48,6 +56,7 @@ class db_kanawha(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_kumbrabow(db.Model):
@@ -56,6 +65,7 @@ class db_kumbrabow(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_panther(db.Model):
@@ -64,6 +74,7 @@ class db_panther(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class db_seneca(db.Model):
@@ -72,6 +83,7 @@ class db_seneca(db.Model):
     location = db.Column(db.String(100))
     description = db.Column(db.String(1000))
     is_caution = db.Column(db.Boolean, unique=False, default=False)
+    is_star = db.Column(db.Boolean, unique=False, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):

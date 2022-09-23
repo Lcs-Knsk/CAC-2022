@@ -1,6 +1,5 @@
 #topBar{
-    height: 10vh;
-    min-height: 40px;
+    min-height: 10vh;
     width: 100%;
     border-bottom: 2px solid black;
     margin: 0px;

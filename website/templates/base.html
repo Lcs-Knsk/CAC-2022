@@ -113,6 +113,11 @@
                     <input type="checkbox" id="uploadCaution" name="Is_Caution"> 
                 </div>
 
+                <div class="uploadWrappers">
+                    <label id="uploadLabelDescription"> Star: </label>
+                    <input type="checkbox" id="uploadCaution" name="Is_Star">
+                </div>
+
                 <br>
                 <button type="submit" id="uploadSubmit">Upload To Map</button>
             </form>
@@ -129,11 +134,17 @@
                 iconSize: [38, 38],
             });
 
+            var starIcon = L.icon({
+                iconUrl: 'static/Images/StarImage.png',
+                iconSize: [38, 38],
+                iconAnchor: [19, 36],
+            })
+
 
 
             makeMap({{latitude}}, {{longitude}});
             var myData = {{ markers|tojson }};
-            setTimeout(setMarkers, 200)
+            setTimeout(setMarkers, 100)
 
 
             // Checks if the user is using a mobile brows
@@ -150,15 +161,34 @@
 
             function setMarkers(){
                 for(var i = 0; i < myData.length; i++){
-                    uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3], myData[i][4]);
+                    // 0: Id, 1: Date, 2: Location, 3: Description, 4: Caution, 5: Starred
+                    uploadImage(myData[i][0], myData[i][1], myData[i][2], myData[i][3], myData[i][4], myData[i][5]);
                 }
             }
 
-            function uploadImage(id, date, location, description, is_caution){     
+            function uploadImage(id, date, location, description, is_caution, is_star){     
                 showDate = date;     
                 date = date.split("/");                
                 var today = new Date();
                 
+
+                // If image (is_star) should not be shown on latest pictures, always placed on map
+                if(is_star){
+                    position = location.split(":")
+
+                    var marker = L.marker([position[0], position[1]], {icon: starIcon}).addTo(map);
+
+                    id = id.replace(" ", "_");
+                    id = id.replace(":", "");
+                    id = id.replace(":", "");
+
+                    marker.bindPopup("<b>" + showDate + "<br>" + description + "</b>  <br> <img src='static/UPLOAD_FOLDER/" + id + "' style='max-width:30vh; max-height:30vh;'>");
+
+                    return;
+                }
+
+                // If within 1 week of uploading image, show image on map.
+                //      If still haven't show 8 latest pictures, show on live feed.
                 if(parseInt(date[0]) == today.getMonth()+1){
                     if(parseInt(date[1])+7 >= today.getDate()){
                         if(parseInt(date[2])+2000 == today.getFullYear()){
@@ -166,6 +196,7 @@
                             position = location.split(":")
 
                             if(is_caution) var marker = L.marker([position[0], position[1]], {icon:cautionIcon}).addTo(map);
+                            else if(is_star) var marker = L.marker([position[0], position[1]], {icon: starIcon}).addTo(map);
                             else var marker = L.marker([position[0], position[1]]).addTo(map);
 
                             id = id.replace(" ", "_");
