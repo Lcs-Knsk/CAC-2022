@@ -11,13 +11,17 @@ function makeMap(latitude, longitude){
 
 function getLocation(){
     if(window.navigator.geolocation){
-        window.navigator.geolocation.getCurrentPosition(fillLocation, console.log(), {enableHighAccuracy: true});
+        window.navigator.geolocation.getCurrentPosition(fillLocation, handleError, {enableHighAccuracy: true});
     }
 }
 
 function fillLocation(position){
     const {latitude, longitude} = position.coords;
     document.getElementById("uploadInputLocation").value = latitude + ":" + longitude;
+}
+
+function handleError(error){
+    document.getElementById("uploadInputLocation").value = "Error uploading location";
 }
 
 
