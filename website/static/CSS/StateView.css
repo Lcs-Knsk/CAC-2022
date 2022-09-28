@@ -85,10 +85,17 @@
     z-index: 999;
     color: rgba(255, 255, 255, 0.75);
     text-align: left;
-    padding: 25vh 0vh 45vh 10vh;
     margin: 0px;
     font-family: sans-serif;
 
+}
+
+#WelcomeButton{
+    color: rgba(255, 255, 255, 0.75);
+    background-color: #917c63;
+    border: 1px solid black;
+    float: left;
+    behavior: smooth;
 }
 
 #WelcomeBackground{
@@ -99,6 +106,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding: 33vh 0vh 45vh 10vh;
 }
 
 
@@ -113,7 +121,7 @@
 
 #SecondSection{
     width: 100%;
-    height: 100vh;
+    height: 140vh;
 }
 
 #SecondTitle{

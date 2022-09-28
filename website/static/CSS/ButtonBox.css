@@ -1,7 +1,7 @@
 .StateParkBox{
     float: left;
 
-    width: 26.5vh;
+    width: 40%;
 
     border: 5px solid black;
     padding: 1%;
@@ -11,13 +11,13 @@
     color: black;
 
     transition: .4s;
-    margin-left: 1%;
+    margin-left: 5%;
     margin-top: .8%; 
 
     background-color: DDE2C6;
     font-size: 15px;
     text-decoration: none;
-    height: 27vh;
+    height: 20vh;
 }
 
 .StateParkBox:hover{
@@ -27,8 +27,11 @@
 
 .StateParkImg{
     display: block;
-    width: 95%;
+    width: 40%;
     border: 5px solid black;
+    float: left;
+    margin-right: 5%;
+    max-height: 18.5vh;
 }
 
 .StateParkUnderTitle{
@@ -39,11 +42,11 @@
 .StateParkTitle{
     text-align: left;
     margin: 5px 0px 5px 0px;
-    font-size: 3.5vh;
+    font-size: 4vh;
+    font-family: serif;
 }
 
 .StateParkAbout{
     margin: 0px;
-    font-size: 115%;
-    display: none;
+    font-size: 2vh;
 }
