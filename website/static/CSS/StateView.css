@@ -110,6 +110,20 @@
     margin-right: 10%;
 }
 
+
+#SecondSection{
+    width: 100%;
+    height: 100vh;
+}
+
+#SecondTitle{
+    font-family: "Georgia";
+    width: 100%;
+    text-align: center;
+    font-size: 8vh;
+}
+
+
 #FirstSection{
     width: 100%;
 }
